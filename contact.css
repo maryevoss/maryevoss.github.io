@@ -119,6 +119,7 @@ h1 {
     }
     .main{
         width: 80%;
+        margin: 0px auto;
     }
 }
 
@@ -141,6 +142,7 @@ h1 {
     }
     .main{
         width: 80%;
+        margin: 0px auto;
     }
 }
 
@@ -162,6 +164,7 @@ h1 {
     }
     .main{
         width: 90%;
+        margin: 0px auto;
     }
  
 }
@@ -184,6 +187,7 @@ h1 {
     }
     .main{
         width: 90%;
+        margin: 0px auto;
     }
 
 }
