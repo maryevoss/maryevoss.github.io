@@ -6,7 +6,7 @@ html, body {
 
 
 #page1 {
-    background-image: url("/Users/me.voss/Projects/Portfolio/Home/resources/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    background-image: url("olga-thelavart-vS3idIiYxX0-unsplash.jpg");
     height: 100%;
     background-size: cover;
 }
