@@ -44,9 +44,9 @@ html, body {
 
 
 .main {
-    margin-top: 56px;
-    padding-top: 24px;
+    padding-top: 80px;
     width: 70%;
+    margin: 0px auto;
 }
 
 /* MARY-ELIZABETH VOSS font & position*/
