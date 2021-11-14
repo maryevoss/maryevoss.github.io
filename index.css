@@ -1,0 +1,314 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+   /* background-color:#89C1DC;*/
+}
+
+
+#page1 {
+    background-image: url("/Users/me.voss/Projects/Portfolio/Home/resources/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    height: 100%;
+    background-size: cover;
+}
+
+/* STYLE FOR NAV BAR USED ON ALL PAGES*/
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+    padding: 0px;
+    display:flex;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {  
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+
+.main {
+    margin-top: 56px;
+    padding-top: 24px;
+
+}
+
+/* MARY-ELIZABETH VOSS font & position*/
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 96px;
+    text-align: center;
+    padding-bottom: 84px;
+}
+
+/* HI, into font & position*/
+.hiii {
+    font-family: 'Kalam';
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* i believe math solves everything image size and position*/
+img {
+    height: auto;
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+
+.navbar-fixed-top-white{
+    margin: 0px auto;
+
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid white;
+}
+
+.navbar-fixed-top-white ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-white li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row
+    display: inline;
+}
+
+.navbar-fixed-top-white a {
+    color:white;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-white a:hover {
+    text-decoration: underline;
+}
+
+.about {
+    margin: 0px auto;
+    position: relative;
+    top: 20%;
+    justify-content: center;
+    width: 80%;
+    border-style: 1px double black;   
+    
+}
+
+.about2 {
+    color: black;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    font-family: 'Lora';
+    line-height: 2;
+  
+}
+
+.middle {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.boldgreen {
+    font-style: italic;
+    font-weight: 600;
+    color: #73CBC1;
+}
+
+.boldpurple {
+    font-style: italic;
+    font-weight: 600;
+    color: #B967BB;
+}
+
+.boldorange {
+    font-style: italic;
+    font-weight: 600;
+    color: #CF866B;
+}
+
+#page2 {
+    background: #005249 ;
+    height: 100%;
+    background-size: cover;
+}
+
+#page3 {
+    background: #4E0550 ;
+    height: 100%;
+    background-size: cover;
+}
+
+#page4 {
+    background: #CA6641;
+    height: 100%;
+    background-size: cover;
+}
+
+*/
+
+@media only screen and (min-width: 1540px) {
+    /* adjusts for larger than a typical laptop screen */
+    p {
+        margin-top: 120px;
+    }
+    img {
+        width: 864px;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 80%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    a{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+        padding-bottom: 84px;
+    }
+    
+    /* HI, into font & position*/
+    .hiii {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+        padding-bottom: 84px;
+    }
+    /* HI, into font & position*/
+    .hiii {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 659px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 60px;
+        padding-bottom: 84px;
+    }
+    /* HI, into font & position*/
+    .hiii {
+        font-size: 20px;
+    }
+    /* i believe math solves everything image size and position*/
+}
+
+@media only screen and (max-width: 399px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 48px;
+        padding-bottom: 84px;
+    }
+    /* HI, into font & position*/
+    .hiii {
+        font-size: 1rem;
+    }
+    img {
+        width: 80%;
+        height: auto;
+    }
+}
+
+/* around 260 px it's closing in on itslef*/
