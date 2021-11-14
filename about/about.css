@@ -1,0 +1,205 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+    
+   /* background-color:#89C1DC;*/
+}
+
+
+/*#page2{
+    background-image: url("/Users/me.voss/Projects/Portfolio/Home/resources/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    height: 100%;
+    background-size: cover;
+}*/
+
+/* STYLE FOR NAV BAR USED ON ALL PAGES*/
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+
+/* MARY-ELIZABETH VOSS font & position*/
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 72px;
+    text-align: center;
+    padding-top: 36px;
+    padding-bottom: 0px;
+    color: #3C4142;
+}
+
+
+.about {
+    margin: 0px auto;
+    justify-content: center;
+    width: 80%;
+    border-style: 1px double black;   
+    
+}
+
+.about2 {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.25rem;
+    font-family: 'Roboto';
+    line-height: 2;
+    color: #3C4142;
+  
+}
+
+.middle {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.bold {
+    font-family: 'Archivo Narrow';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #CA6641;
+}
+
+@media only screen and (min-width: 1440px) {
+    /* adjusts for larger than a typical laptop screen */
+    .about {
+        margin-top: 120px;
+        width:60%;
+    }
+}
+
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 80%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    a{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+    }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 659px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 60px;
+    }
+ 
+}
+
+@media only screen and (max-width: 399px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 48px;
+        padding-bottom: 84px;
+    }
+    .about2 {
+        font-size: 1rem;
+    }
+    .bold {
+        font-size: 1.15rem;
+    }
+
+}

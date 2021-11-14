@@ -1,0 +1,285 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+    /*background-image: url("/Users/me.voss/Projects/Portfolio/Home/resources/olga-thelavart-vS3idIiYxX0-unsplash.jpg");*/
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* STYLE FOR NAV BAR USED ON ALL PAGES*/
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+
+/* MARY-ELIZABETH VOSS font & position */
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 72px;
+    text-align: center;
+    padding-top: 36px;
+    padding-bottom: 0px;
+    color: #3C4142;
+}
+
+/* about 40px between h1 and h2, not sure why, might need to put them in a sole container */
+h2 {
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    text-align: center;
+    color: #3d85c6;
+}
+
+/* sizing for resume content- everything under title resume*/
+.content{
+    width: 70%;
+    margin: 0px auto;
+}
+
+/* for all the diff types of text styles in h3 headings */
+h3 {
+    text-transform: uppercase;
+    color: #0B5394;
+    text-decoration: underline;
+    margin-top: 48px;
+    font-size: 1.25rem;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.ital {
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+.norm {
+    font-size: 1.1rem;
+}
+
+.dates {
+    font-size: .9rem;
+    color:#3C4142;
+}
+
+p, li{
+    line-height: 1.5;
+}
+
+/* blurbs and bullet points within each position*/
+
+.positions {
+    margin-top: 48px;
+}
+
+.blurb {
+    color:#3C4142;
+}
+
+.out {
+    margin-top:16px;
+    color:#3C4142;
+}
+
+/* spacing between bullet point lists*/
+.in {
+    margin-bottom: 10px;
+    color:#3C4142;
+}
+
+
+.uni {
+    font-weight: bold;
+}
+
+.five {
+    padding-bottom: 48px;
+}
+
+/*      LARGER THAN 1400PX SIZE SCREEN        */
+
+@media only screen and (min-width: 1440px) {
+    /* adjusts for larger than a typical laptop screen */
+    .content {
+        margin-top: 120px;
+        width:60%;
+    }
+}
+
+
+/*      SMALLER THAN 1400PX SIZE SCREEN        */
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 80%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    a{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    .content {
+        width:70%;
+    }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 72px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    .content {
+        width:70%;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 659px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 40px;
+    }
+    .content {
+        width:75%;
+    }
+ 
+}
+
+@media only screen and (max-width: 399px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 48px;
+    }
+    h2 {
+        font-size: 36px;
+    }
+    h3, p{
+        font-size: 1rem;
+    }
+    .bold {
+        font-weight: bold;
+        font-size: 1rem;
+    }
+    
+    .ital {
+        font-style: italic;
+        font-size: 1rem;
+    }
+    
+    .norm {
+        font-size: 1rem;
+    }
+    
+    .dates {
+        font-size: .8rem;
+        color:#3C4142;
+    }
+    .content {
+        width:80%;
+    }
+
+
+}
