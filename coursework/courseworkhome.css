@@ -1,0 +1,433 @@
+html, body {
+    font-size: 16px;
+    font-weight: 400;
+    /*background-image: url("/Users/me.voss/Projects/Portfolio/Home/resources/olga-thelavart-vS3idIiYxX0-unsplash.jpg");
+    background-size: cover;
+    background-image: linear-gradient(180deg,rgba(202, 102, 65, 0.15), rgba(78, 5, 80, 0.15));*/
+}
+
+/*-------------------------------------------------------------------*/
+
+/* STYLE FOR NAV BAR USED ON ALL PAGES*/
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+
+/*-------------------------------------------------------------------*/
+
+/* ensures body doesn't crash into nav*/
+
+.main {
+    margin-top: 56px;
+    padding-top: 0px;
+}
+
+
+/*-------------------------------------------------------------------*/
+
+/* MARY-ELIZABETH VOSS font & position
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 72px;
+    text-align: center;
+    padding-bottom: 75px;
+} */
+
+
+/*-------------------------------------------------------------------*/
+
+/* title (left side)*/
+
+
+h2 {
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    text-align: center;
+    color: #3d85c6;
+}
+
+.description {
+    text-align: center;
+    font-family: 'Archivo Narrow';
+    margin-top: -30px;
+    margin-bottom: 75px;
+}
+
+.title {
+    font-family: 'Archivo Narrow';
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 400;
+}
+
+#disbold {
+    font-weight:600;
+    font-style: normal;
+
+}
+
+/*-------------------------------------------------------------------*/
+.cw {
+    width: 90%;
+    margin: 0 auto;
+
+}
+.row {
+    display:flex;
+    margin: 0 auto;
+    justify-content:space-around;
+    text-align: center; /*centers copy within each square*/
+    padding-bottom: 0px;
+}
+
+.outer-outer {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
+.outer-box{
+    width:40%;
+    padding: 10px;
+    /*border: 1px solid white;*/
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inner {
+    height: auto;
+   
+}
+
+img {
+    /*width: 500px;
+    height: 304px;*/
+    width:100%;
+    height: 200px;
+    max-height: 400px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+a {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: black;
+    font-family: 'Archivo Narrow';
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: none; 
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/*      LARGER THAN 1440PX SIZE SCREEN        */
+
+@media only screen and (min-width: 1600px) {
+    /* adjusts for larger than a typical laptop screen */
+    .outer-outer {
+        display: flex;
+        flex-direction: row;
+        width: 40%;
+    }
+    .outer-box{
+        width:350px;
+        padding: 10px;
+        /*border: 1px solid white;*/
+        margin: 20px;
+        margin-left: 50px;
+        margin-right: 50px;
+        
+    }
+    img {
+        max-width:100%;
+        height: 200px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+    .row {
+        justify-content: center;
+    }
+    
+}
+
+
+/*      SMALLER THAN 1400PX SIZE SCREEN        */
+
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 85%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        
+    }
+    .outer-box{
+        width: 30%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 200px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .outer-box{
+        width: 35%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 175px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around; 
+    }
+    .outer-box{
+        width: 40%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 175px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;   
+    }
+    .outer-box{
+        width: 45%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 150px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+    a{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 676px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        
+    }
+    .outer-box{
+        width: 45%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 150px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+    a{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 659px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        
+    }
+    .outer-box{
+        width: 45%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 125px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+}
+
+@media only screen and (max-width: 399px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+
+    a {
+        font-size: 1rem;
+    }
+    .description{ width: 90%;
+    }
+    .row {
+        display:flex;
+        margin: 0 auto;
+        text-align: center; /*centers copy within each square*/
+        padding-bottom: 0px;
+        flex-direction: column;
+    }
+    .outer-outer {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        
+    }
+    .outer-box{
+        width:80%;
+        padding: 10px;
+    }
+    img {
+        max-width:100%;
+        height: 125px;
+        overflow: hidden;
+        border: 1px solid black;
+    }
+}
+
