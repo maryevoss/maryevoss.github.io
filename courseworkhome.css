@@ -244,7 +244,6 @@ a:hover {
         display: flex;
         width: 100%;
         justify-content: space-around;
-        flex-direction: column; /*testing for mbile, remove if doesnt work*/
     }
     .outer-box{
         width: 35%;
@@ -378,6 +377,7 @@ a:hover {
         display: flex;
         width: 100%;
         justify-content: space-around;
+        flex-direction: column;
         
     }
     .outer-box{
