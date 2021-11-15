@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Flexible Regression: Mixed Models and Splines</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="flexreg.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <h1>Flexible Regression: Mixed Models and Splines</h1>
+
+        <p class="code_used">All Mixed Model questions were computed using STATA, and all Splines questions using R.</p>
+
+
+
+        <!--MIXED MODELS-->
+
+        <p class="text bold unders underimage">Mixed Models- No. 1</p>
+        <div class="image2">
+            <img src="flexible-regression-resources/m1.png">
+            <p class="graphcap">Figure M1: Average life expectancy for residence in 10 regions between 1990 and 2010</p>
+        </div>
+        <p class="text space">For the 10 regions selected, life expectancy has increased by 5.08 year on average between 1990 and 2010.
+            While all regions have increasing life expectancy, each region's growth is unique.expectancy. Within a single
+            year life expectancy can differ from region to region by up to approximately 2.12 years.</p>
+
+        <p class="text bold unders underimage">Mixed Models- No. 2</p>
+        <p class="text">\(Y_{it} = \alpha +\beta t+ \alpha_i +\beta_it + \epsilon_i\)</p>
+        <p class="unders">Where:</p>
+        <p class="var">\(i\)= region</p>
+        <p class="var">\(t\)= year</p>
+        <p class="var">\(Y_{it}\)= the life expectancy of a person in region \(i\) at year \(t\)</p>
+        <p class="var">\(\alpha\)= the population intercept</p>
+        <p class="var">\(\alpha_i\)= the deviation of region \(i\) from the population intercept</p>
+        <p class="var">\(\beta\)= the population slope</p>
+        <p class="var">\(\beta_i\)= the deviation of region \(i\) from the population slope</p>
+        <p class="text space">\(\alpha_{i} \sim N(0,\sigma_\alpha^2)\) is the assumption that the deviations of 
+            regions \(i\) from the population intercept are normal and \(\beta_i \sim N(0,\sigma_\beta)\) is the assumption 
+            that the deviations of regions \(i\) from the population slope are normal.</p>
+    
+        <p class="text space">The 5 possible covariance structures are dependent on the random effects-  Region: year on the slope and intercept </p>
+        <ol>
+            <li>Unstructured: \(\sigma_\alpha^2 >0,
+                \sigma_\beta^2 > 0,
+                \sigma_{\alpha \beta} \neq 0\)</li>
+            <li>Independent: \(\sigma_\alpha^2 >0,
+                \sigma_\beta^2 > 0,
+                \sigma_{\alpha \beta} = 0\)</li>
+            <li>Identity: \(\sigma_\alpha^2 = 0,
+                \sigma_\beta^2 > 0,
+                \sigma_{\alpha \beta} = 0\)</li>
+            <li>No constant variance: \(\sigma_\alpha^2 > 0,
+                \sigma_\beta^2 = 0,
+                \sigma_{\alpha \beta} = 0\)</li>
+            <li>No random effects</li>
+        </ol>
+
+        <p class="text bold unders underimage">Mixed Models- No. 3</p>
+        <p class="tablecap">Table M1: Model Evaluation Table</p>
+        <table>
+            <tr>
+                <th>Covariance Structures</th>
+                <th>AIC</th>
+                <th>BIC</th>
+            </tr>
+            <tr>
+                <td>\(\sigma_\alpha^2 >0,
+                    \sigma_\beta^2 > 0,
+                    \sigma_{\alpha \beta} \neq 0\)</td>
+                <td>1549.335</td>
+                <td>1561.269</td>
+            </tr>
+            <tr>
+                <td class="yellow">\(\sigma_\alpha^2 >0,
+                    \sigma_\beta^2 > 0,
+                    \sigma_{\alpha \beta} = 0\)</td>
+                <td class="yellow">1548.858</td>
+                <td class="yellow">1558.803</td>
+            </tr>
+            <tr>
+                <td>\(\sigma_\alpha^2 = 0,
+                    \sigma_\beta^2 > 0,
+                    \sigma_{\alpha \beta} = 0\)</td>
+                <td>2244.112</td>
+                <td>2252.068</td>
+            </tr>
+            <tr>
+                <td>\(\sigma_\alpha^2 > 0,
+                    \sigma_\beta^2 = 0,
+                    \sigma_{\alpha \beta} = 0\)</td>
+                <td>1569.03</td>
+                <td>1576.986</td>
+            </tr>
+            <tr>
+                <td>No Random Effects</td>
+                <td>3114.925</td>
+                <td>3120.892</td>
+            </tr>
+        </table>
+
+        <p class="text">The model with independent covariance structures is the most appropriate- it has the lowest AIC and BIC
+                values at 1548.858 and 1558.803 respectively.</p>
+
+        <p class="text bold unders underimage">Mixed Models- No. 4</p>
+            <div class="image2">
+            <img src="flexible-regression-resources/mm4.png">
+            <p class="graphcap text">Figure M2: Graph of Observed Life Expectancy for Regions 860, 864, and 868 and their fitted counterparts
+            from the independent model</p>
+        </div>
+        <p class="text space">When the observed and fitted values are compared it is clear that the predicted lines simply connect the first
+            and last observed value for each region. Observed life expectancy does not increase linearly, and wavers a lot
+            during the 21 year period. Therefore the selected model from no.3 is not appropriate for predicting the year
+            to year life expectancy changes.</p>
+
+        <p class="text bold unders underimage">Mixed Models- No.5</p>
+        <div class="image2">
+            <img src="flexible-regression-resources/mm5.png">
+            <p class="graphcap text">Figure M3: Graph visualising the estimate random intercept and slope for each Region within study</p>
+        </div>
+        <p class="text space">Regions 403, 9, 2 and 804 do notably worse in life expectancy than the other regions. In 1990, they have a
+            lower life expectancy compared to other regions and their growth of life expectancy also occurs at a much
+            slower rate. Conversely, regions 204, and 272 perform best, both beginning at higher life expectancy in 1990
+            and having faster growth than many others. Though regions 664, 244, and 205 have very average life
+            expectancy in 1990 their average year over year growth is much better than the others.</p>
+
+        <p class="text bold unders underimage">Mixed Models- No 6.</p>
+            <div class="image2">
+            <img src="flexible-regression-resources/mm6.png">
+        </div>
+        <p class="graphcap text">Figure M4: Graphing \(\hat{\alpha}_i + \hat{\beta}_i\) for each region, where deviation= \(\hat{\alpha}_i + \hat{\beta}_i\)</p>
+        <p class="text space">Figure M4 shows that region 268 has the highest life expectancy compared to the other regions within the
+            study. Whereas Figure M3 shows that even though region 268 has the highest life expectancy in year 0 it did
+            not experience as much growth compared to other regions over the 21 year period. Even though region 268
+            has not experienced the most growth in life expectancy, it was still above average, and combined with the
+            highest life expectancy at year 0 it had the second highest in year 2010, which is why it still performs best.</p>
+
+
+
+        <!--SPLINES-->
+
+
+
+        <p class="text bold unders underimage">Splines- No. 1</p>
+        <p class="text">From plotting the weight crystals (y-axis) against the temperature (x-axis) they are made at, the peak 
+            yield on weight = 26.24465047 occurs when the temperature is 16.3 degrees. Once temperature surpasses ≈19 degrees 
+            the weight drops below 10, and mostly wavers between a weight of 0 and 5 after 20 degrees (with few exceptions). 
+            Generally lower temperatures yield higher weights.</p>
+
+        <p class="text bold unders underimage">Splines- No. 2</p>
+
+        <div class="image">
+            <img src="flexible-regression-resources/1cubicspline.jpeg">
+            <p class="text graphcap">Figure S1: Plot of Weight against covariate temperature with a regression model of a fitted cubic 
+            spline with 2 knots (red line) and 95% confidence interval values (blue lines) of the fitted values.</p>
+        </div>
+
+        <p class="text">a) A cubic spline with 2 knots has 6 degrees of freedom.</p>
+
+        <p class="text bold unders underimage">Splines- No. 3</p>
+
+        <div class="image">
+            <img src="flexible-regression-resources/2cubicspline.jpeg">
+            <p class="text graphcap">Figure S2: Plot of Weight against covariate temperature with a regression model of a fitted cubic 
+            spline with 5 knots (red line) and 95% confidence interval values (blue lines) of the fitted values.</p>
+        </div>
+        <p class="text">a) A cubic spline with 5 knots has 9 degrees of freedom.</p>
+
+        <p class="text bold unders underimage">Splines- No. 4</p>
+        <p class="text">Albeit not precise, the splines do roughly characterise the relationship between weight and temperature. 
+            The peaks are in similar positions to the actual max; but both peak early and do not raise as high as the actual peak. 
+            The regression lines fit within the 95% confidence intervals. The confidence intervals are much wider before and 
+            after the incline and decline towards and from the peak. When they are narrower the predicted weights of crystals 
+            are more likely to be accurate in comparison to the wider confidence intervals. As the degrees of freedom has 
+            increased oscillation has become visible. </p>
+
+        <p class="text bold unders underimage">Splines- No. 5</p>
+
+        <div class="image">
+            <img src="flexible-regression-resources/3naturalcubicspline.jpeg">
+            <p class="text graphcap">Figure S3. Plot of Weight against covariate temperature with a regression model of a fitted natural 
+            cubic spline with 9 df (red line) and 95% confidence interval values (blue lines) of the fitted values.</p>
+        </div>
+
+        <p class="text bold unders underimage">Splines- No. 6</p>
+        <p class="text">Some of the issues spotted in Figure S2 appear to have been fixed by using a natural cubic spline with 9 df. 
+            The predicted peak weight of crystals is much more accurate with the lower and upper confidence intervals containing the 
+            actual peak, and the range of weights around peak temperature. The oscillation visible in the 5 knot cubic spline, is 
+            not visible here, and the confidence intervals before and after the peak on the inclining and declining slopes are much 
+            more narrow suggesting more accuracy of the regression line within those ranges of temperature.</p>
+
+        <p class="text bold unders underimage">Splines- No. 7</p>
+        <div class="image">
+            <img src="flexible-regression-resources/SmoothingSpline_525df.jpeg">
+            <p class="text graphcap">Figure S4. Plot of Weight against covariate Temperature with a smoothing spline with 5.25 df</p>
+    </div>
+        <div class="image">
+            <img src="flexible-regression-resources/SmoothingSpline_105df.jpeg">
+            <p class="graphcap text">Figure S5. Plot of Weight against covariate Temperate with a smoothing spline with 10.5 df
+            </p>
+        </div>
+
+        <div class="image">
+            <img src="flexible-regression-resources/SmoothingSpline_21df.jpeg">
+            <p class="text graphcap">Figure S6. Plot of Weight against covariate Temperature with a smoothing spline with 21 df</p>
+        </div>
+        
+        <p class="text space">At 5.25 df the smoothing spline is not a good fit for the data, it follows the basic shape of the data, 
+            but cannot meet the full range of weight values. At 10.5 df, the smoothing spline has an improved fit (compared to 
+            5.25 df), its peak reaches further towards the max, but still does not reach the cluster of highest weights. At 21 df, 
+            the smoothing spline best fits temperatures <&lt;20 degrees, but begins to oscillate after this temperature. Oscillation 
+            became visible at 10.5 df and became worse at degrees of freedom increased.  The smoothing spline with 21df though 
+            not perfect does best predict the weights of crystals depending on the temperatures they are made at. </p>
+        
+       <p class="text bold unders underimage">Splines- No. 8</p>
+       <div class="image">
+            <img src="flexible-regression-resources/no8.jpeg">
+            <p class="graphcap text">Figure S7. (L) Plotted smooth function on bp.temp (R) Plotted smooth function on bp.moist
+            Stata Code</p>
+        </div>
+        <p class="text">Yes, the relationship between bp.temp and bp.weight and that between bp.moist and bp.weight are non-linear.</p>
+
+    </main>
+    
+</body>
+</html>

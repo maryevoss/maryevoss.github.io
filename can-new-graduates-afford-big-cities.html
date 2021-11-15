@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Can new graduates afford to live in the big cities?</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="statistics.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <header>
+            <h1>CAN NEW GRADUATES AFFORD TO LIVE IN THE BIG CITIES?</h1>
+        </header>
+
+        <section class="problem">
+            <h2 id="questionone">Problem Brief</h2>
+            <p class="text">Obtain a suitable set of data (40 or more data points). Use MINITAB (or R if you prefer to carry out some statistical 
+                analysis (apply methods covered in Statistical Methods for OR or beyond).</p>
+        </section>
+
+        <section>
+            <h2 id="probsoltwo">Report</h2>
+            <a href="statistics-resources/Stats Poster copy.001.jpeg" target="blank">Poster Version</a>
+
+
+        <section class="intro">
+            <h3>Introduction</h3>
+            <p class="text">Every Spring millions of students in the United States graduate from university to begin their first full time 
+                jobs. A study conducted by the Wall Street Journal tracked which cities alumni from 445 universities moved to after graduation 
+                and found that the 5 most popular cities amongst new graduates are: New York City, Washington DC, Los Angeles, Chicago, and 
+                San Francisco<sup>1</sup>. Though each city is known for career opportunities and high salaries for young dream chasers, they are also 
+                known for very high cost of living regionally and globally. <span class="bold">This presents the question: Can entry level 
+                professionals afford to live in these cities?</span></p>
+            
+            <p class="tablecap">Table 1. Annual Cost of Living in Each City and their Rank on the Cost of Living Index<sup>2</sup></p>
+            <table border="1">
+                <tr>
+                    <th>City</th>
+                    <th>Annual Cost of Living (US$)</th>
+                    <th>United State's Rank</th>
+                    <th>Global Rank</th>
+                </tr>
+                <tr>
+                    <td>New York City</td>
+                    <td>53,484</td>
+                    <td>2nd</td>
+                    <td>3rd</td>
+                </tr>
+                <tr>
+                    <td>San Francisco</td>
+                    <td>56,724</td>
+                    <td>3rd</td>
+                    <td>6th</td>
+                </tr>
+                <tr>
+                    <td>Washington, DC</td>
+                    <td>41,244</td>
+                    <td>4th</td>
+                    <td>11th</td>
+                </tr>
+                <tr>
+                    <td>Los Angeles</td>
+                    <td>41,640</td>
+                    <td>10th</td>
+                    <td>21st</td>
+                </tr>
+                <tr>
+                    <td>Chicago</td>
+                    <td>31,872</td>
+                    <td>13th</td>
+                    <td>27th</td>
+                </tr>
+            </table>
+
+
+            <p class="text">A sample of 100 entry level salaries per city was collected for a total sample of 500 records. Each record also 
+                contained the following meta data: city, industry, job title, company, and degree earned. To answer the overarching question: 
+                Can entry level professional afford to live in these cities? <span class="colblue">The following analyses were completed 
+                using R:</span></p>
+                <ol class="code_used">
+                    <li class="text"><span class="bold">Graph Plotting</span> - a visual aid to better understand the sample set's distribution 
+                        and communicate the 5 summary statistics</li>
+                    <li class="text"><span class="bold">Linear Regression</span> - a simpler method to predict post-tax salaries</li>
+                    <li class="text"><span class="bold">Confidence Intervals</span> - what proportion of entry levels can expect to earn a salary 
+                        higher than cost of living within the 5 cities?</li>
+                    <li class="text"><span class="bold">ANOVA & Hypothesis Testing</span> - is there equal opportunity for earning above cost 
+                        of living across the 5 cities?</li>
+                </ol>
+        </section>
+
+        <section class="analysis">
+            <h3>Analysis of Data</h3>
+            <p class="text">The pre-tax and post-tax salary data points were plotted on a scatter plot, box plot and density plot to provide 
+                initial insight into the sample set (Graph A1). The strong linear relationship between the predictor: pre-tax salaries and 
+                response variable: post-tax salaries became visible. While the box plot highlighted the outliers present within the sample set, 
+                and the density plot revealed the severity of the left skew.</p>
+            <p class="text">Because this study is focused on the likelihood of entry level graduates being able to afford their cities it 
+                became evident that removing outliers is a priority because they were influencing the statistical parameters. Two methods 
+                were tested: Cook's Distance and 1.5 x IQR, and the latter proved to be a better method for this test (Graph A2). Cook's 
+                Distance demonstrated that some data points were highly influential on the regression model (and therefore to an extent 
+                on statistical parameters). 1.5 x IQR improved the skew and symmetry of the sample set by removing the highest salaries 
+                and the influence they had on the mean and variance.</p>
+            <p class="text">Twenty outliers were removed from the tail-end of the sample set, and so the majority of change occurred in the 
+                second half (after the median) of the data. The twenty outliers represented only 4% of the sample set but covered 1/3 of the 
+                range in pre-tax salaries ($140,001 to $200,000). Their removal shrunk the average salary by $4,078, and the variance by 
+                $6,824, tightening the model.</p>
+            <p class="tablecap">Table 2: Comparison of Statistical Summary for the Original Sample Set vs the Trimmed Sample Set</p>
+            <table class="abovegraph">
+                <tr>
+                    <th>Statistical Parameter</th>
+                    <th>Original Sample Set (n=500) (in USD)</th>
+                    <th>Trimmed Sample Set (n=480) (in USD)</th>
+                </tr>
+                <tr>
+                    <td>Minimum</td>
+                    <td>20,000</td>
+                    <td>20,000</td>
+                </tr>
+                <tr>
+                    <td>Q1</td>
+                    <td>50,000</td>
+                    <td>50,000</td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td>65,200</td>
+                    <td>65,000</td>
+                </tr>
+                <tr>
+                    <td>Q3</td>
+                    <td>86,000</td>
+                    <td>83,250</td>
+                </tr>
+                <tr>
+                    <td>Maximum</td>
+                    <td>200,000</td>
+                    <td>140,000</td>
+                </tr>
+                <tr>
+                    <td>Mean</td>
+                    <td>73,613</td>
+                    <td>69,535</td>
+                </tr>
+                <tr>
+                    <td>Standard Deviation</td>
+                    <td>32,048</td>
+                    <td>25,224</td>
+                </tr>
+            </table>
+            
+            <div class="image">
+                <img src="statistics-resources/image-5.jpeg">
+                <p class="graphcap text">Graph 1: Frequency Graph for Pre-Tax Salaries across all 5 cities. Frequency is clustered in bin widths of 
+                US$10,000.</p>
+            </div>
+            <p class="text underimage">Within these five cities 20% of entry level professionals earned between $45,0001 and $55,000 in pre-tax salary. 
+                Similarly, entry level professionals in New York City, Los Angeles, and Chicago are most likely to earn within this range, 
+                whereas in San Francisco and Washington, DC can expect to earn between $65,001 and $75,000. The mean salary of the 480 
+                entry level professionals is $69,535, with 68% earning between $44,311 and $94,759.</p>
+            
+            <section class="comments">
+                <h4>Comments About Data</h4>
+                <p class="text">The salary data was acquired from Comparably.com<sup>3</sup>. Comparably mostly focuses on the technology industry, 
+                    and it is reflected in the salary records. The data is crowdsourced and therefore there is room for error in the data 
+                    (i.e. the record could be false). In the United States the technology industry is known for paying salaries higher than other 
+                    industries - this means the sample set may inflate results.</p>
+                <p class="text">The distribution of industries within each city differs greatly, and so these variations will also be reflected 
+                    in the data (for example, NYC is ~30% tech salaries and SF ~70%).</p>
+                <p class="text">In addition, each entry level professional may have their own unique background contributing to the large range in 
+                    entry level salaries. These include past summer internships, a Master's degree vs a Bachelor's degree, the field of study, 
+                    etc.</p>
+                <p class="text">In the United States there are many deductions (for example: student loans, mortgage loans, number of dependents, 
+                    etc.) that can be applied to reduce taxable income, but for this study a homogenous approach was taken and only the standard 
+                    deduction of $12,200 USD was deducted.</p>
+            </section>
+        </section>
+
+    
+
+        <section class="estimating">
+            <h3>Estimating Post-Tax Salary</h3>
+            <p class="text">The post-tax salary is the amount a person has to live on, and so it is important to understand what percentage of 
+                the offered pre-tax salary it is. In the United States there are 4 main types of income tax 4,5: federal, state, city, and FICA. 
+                Excluding FICA, each has varying tax brackets that are calculated marginally based on pre-tax salary. This makes it difficult 
+                for someone to quickly understand what their post-tax salary is when offered a compensation package. Using Simple Linear 
+                Regression, a much easier method can be created to estimate post-tax salaries.</p>
+            <p class="text">Graph 2 depicts trend lines for pre-tax and post-tax salaries and their relation to one another (salaries were placed 
+                in ascending order and plotted in that order on the x-axis). The post-tax salary one can expect to earn is directly under the 
+                pre-tax salary offered. Total income tax does not increase linearly - the graph displays a widening gap between the two trend 
+                lines. That is, as salary increases the greater the percentage of one's salary will be paid in taxes. </p>
+            <div class="image">
+                <img src="statistics-resources/image-6.jpeg">
+                <p class="graphcap text">Graph 2: Displays the shift from a Pre-Tax to Post-Tax Salary. A Pre-Tax salary of $70,000 is closer to $53,100 after taxes</p>
+            </div>
+            
+            <section class="corr">
+                <h4>Correlation</h4>
+                <p class="text">The correlation between pre-tax and post-tax salary is 0.9973572. Due to the dependent nature of post-tax salaries 
+                    on income this high positive correlation is expected.</p>
+            </section>
+
+            <section class="simplelinreg">
+                <h4>Simple Linear Regression</h4>
+                <p class="text">As there was only one predictor variable a simple linear regression model was generated to estimate post-tax 
+                    salaries.</p>
+
+                <p class="text indent">Let x denote Pre-Tax Salaries, where x \(\geq\) annual minimum wage</p>
+                <p class="text indent1">\(\hat y\) represents the estimated post-tax salary</p>
+                <p class="text indent1">\(\hat y = 9029.9211 + 0.6315x\)</p>
+                <p class="text underimage abovegraph ">Therefore, a simplified method for estimating post-tax salary is to take 63% of the offered salary 
+                    + $9,000. For example, if Pre-Tax Salary = $150,000, then \(\hat y\)= 9000+ (0.63 *150000) = $103,755.</p>
+                
+                <div class="image">
+                    <img src="statistics-resources/image-9.jpeg">
+                    <p class="graphcap text">Graph 4: Regression Model and the Relationship Between Pre-Tax and Post-Tax Salaries</p>
+                </div>
+            </section>
+
+            <section class="underimage">
+                <table>
+                    <tr>
+                        <th>Parameter</th>
+                        <td>F(1,478)</td>
+                        <td>Prob < F </td>
+                        <td>R<sup>2</sup></td>
+                    </tr>
+                    <tr>
+                        <th>Value</th>
+                        <td>9.007e+04</td>
+                        <td>2.2e-16</td>
+                        <td>0.9947</td>
+                    </tr>
+                </table>
+
+                <p class="text">The large F-value and near zero P-value indicate that there is a relationship between post-tax salaries and 
+                    pre-tax salaries - it rejects \(H_0: \beta_1 =0\)  and accepts \(H_1: \beta_1 \neq 0\). Furthermore, R<sup>2</sup>= 0.9947 
+                    points out that approximately 99.47% of the variance found in post-tax salaries is explained by the predictor: pre-tax 
+                    salaries.</p>
+
+                <table id="underimage">
+                    <tr>
+                        <th>Parameter</th>
+                        <td>Estimate</td>
+                        <td>St. Error</td>
+                        <td>T-Value</td>
+                        <td>P(<|t|)</td>
+                    </tr>
+                    <tr>
+                        <th>Intercept</th>
+                        <td>9029.9211</td>
+                        <td>155.6</td>
+                        <td>58.02</td>
+                        <td> < 2e-16 </td>
+                    </tr>
+                    <tr>
+                        <th>Pre-Tax(x)</th>
+                        <td>0.6315</td>
+                        <td>0.002104</td>
+                        <td>300.12</td>
+                        <td> < 2e-16</td>
+                    </tr>
+                </table>
+
+                <p class="text">While F-Value, P-Value and R<sup>2</sup> provide insight into the entire model, each predictor variable is also 
+                    analyzed independently to have a better understanding of the effect each predictor has on the outcome. In this case, there 
+                    is only one predictor variable and so if the overall model is a strong fit so is the one variable: pre-tax salaries. The 
+                    standard error tells us that on average there is a 0.2% error, so on average we should calculate between 63.336% to 62.9396% 
+                    (which rounds to 63%).</p>
+                
+                <table id="underimage">
+                    <tr>
+                        <th>Parameter</th>
+                        <td>SST</td>
+                        <td>SSE </td>
+                        <td>SSR</td>
+                    </tr>
+                    <tr>
+                        <th>Value</th>
+                        <td>122,185,618,259</td>
+                        <td>121,540,637,938</td>
+                        <td>644,980,321</td>
+                    </tr>
+                </table>
+
+                <p class="text">Due to the large sample size and their range of values the variability represented in SST, SSE and SSR do not 
+                    necessarily represent inaccuracy. From R<sup>2</sup> 99.47% of the variability has already been accounted for. Analyzing 
+                    the mean standard error and residual values give a much better perspective of the errors and their variability with respect 
+                    to the linear model.</p>
+                <p class="text abovegraph">The mean squared error between a predicted post-tax salary and actual post-tax salary is $1,162, meaning that 
+                    on average the standard error between the two values is approximately ± $34.09. To further analyse and understand the 
+                    suitability of the regression model, the residual values between the sample mean of post-tax salaries and actual post-tax 
+                    salaries within the sample set were plotted in Graph 5. Four distinct patterns can be spotted for each state with its own 
+                    tax brackets: California (San Francisco & Los Angeles), Illinois (Chicago), New York (New York City), and Washington, DC. 
+                    Unsurprisingly, the patterns within the residual plot indicate 1) a non-linear model may be more suitable and 2) each state 
+                    should be modelled individually. Not only would modelling each state's taxes individually produce better results, but it 
+                    makes more sense considering that a person only pays income tax for one state for a specific portion of their salary.</p>
+
+                <div class="image">
+                    <img src="statistics-resources/image-10.jpeg">
+                    <p class="graphcap text">Graph 5: Plot of Residual Values Between Sample Mean of Post-Tax Salaries and Actual Post-Tax Salaries</p>
+                </div>
+            </section>
+
+            <section class="summary">
+                <h4>Summary</h4>
+                <p class="text">Taxes increase marginally and each state has its own set of tax brackets. Clustering sample data from 5 cities 
+                    in 4 states still produced a regression model which estimated post-tax salaries with a low root mean squared error. The 
+                    high correlation (0.9973572) between pre-tax salaries and post-tax salaries reveals that even though different states have 
+                    different tax brackets, they are still similar. Due to the non-linearity of tax brackets a non-linear model and each state 
+                    being modelled individually would have probably produced better estimates.</p>
+            </section>
+        </section>
+
+        <section class="above col">
+            <h3>What Proportion Can Expect to Earn Above Cost of Living?</h3>
+            <p class="text">A new graduate is considered to be able to afford cost of living in their city if annual post-tax salary > average 
+                cost of living. Of the 480 salary records within the sample set, 324 received a salary that afforded the person the cost of 
+                living within the city they lived in.
+                A 2-tailed Confidence Interval test at 90% confidence level was calculated to have a clearer understanding of which proportion 
+                of new graduates can afford cost of living. Because it is unknown if there are false salary records in the sample set, only 90% 
+                of the results are estimated to represent the population's results.</p>
+            <p class="indent underimage"><span class="ital">Let N</span> =480</p>
+            <p class="indent2">\(\hat p = 424/480= ~0.675\)</p>
+            <p class="indent2" id="noindent">Confidence interval at 90%, 2-tailed z-test= 1.6449</p>
+            <p class="indent2 underimage">\(z= \sqrt{(0.675 * (1-0.675))/480} \)</p>
+            <p class="indent3">\(0.675 \pm 1.6449 * z\)</p>
+            <p class="indent3">\((0.6398349, 0. 7101651)\)</p>
+            <p class="text underimage">With 90% confidence it can be said the proportion of the population earning above the average cost of living in one 
+                of the 5 cities is between 64% and 71%, where the population represents students about to enter the work force.</p>
+            
+            <section class="equalchance">
+                <h4>Is there an equal chance in each city?</h4>
+                <p class="text">Cost of living varies from city to city, the highest being San Francisco at $56,724 and the lowest Chicago, at 
+                    $31,872 - a $24,842 difference. The theory that new graduates have the same likelihood of earning above cost of living from 
+                    city to city was tested using a one-way ANOVA test and hypothesis test. The data used for this test was Extra = Post-Tax 
+                    Salary- Cost of Living.</p>
+
+                <p class="indent underimage">Let x= Extra</p>
+                <p class="indent2"><span class="ital">If</span> \(\bar{x} \geq\) 0, avg salary is &gt; cost of living</p>
+                <p class="indent2"><span class="ital">If</span> \(\bar{x}\) < 0, avg salary is &lt; cost of living</p>
+                <p class="indent2">\(H_0: \bar x_i = \bar x_j\)</p>
+                <p class="indent2">\(H_1: \bar x_i \leq \bar x_j\)</p>
+                <p class="indent2"><span class="ital">Where i,j = New York City, Los Angeles, San Francisco, Chicago, and Washington, DC</span></p>
+
+                <p class="text underimage">F = 24.48 > f<sub>.05</sub> (4,475)= 0.000 at the significance level of 0.05, therefore we reject H<sub>0</sub>; 
+                    entry level graduates do not have an equal chance of earning above the average cost of living across all cities. On average, 
+                    new graduates will earn $17,620 above the cost of living in Chicago, $12,474 in Washington, $10,903 in San Francisco, $8,169 
+                    in Los Angeles, and -$4,683 in New York City.</p>
+                <p class="text abovegraph">The graph below segments post-tax salaries by city, and the average cost of living index was placed relative to 
+                    the proportions of the sample set that earns pre-tax salaries above and below it. From this sample set Chicago appears to be 
+                    the most affordable and New York City the least affordable - this follows that of these 5 cities New York City is ranked 
+                    highest and Chicago lowest on the Cost of Living Index.</p>
+                <div class="image">
+                    <img src="statistics-resources/image-11.jpeg">
+                    <p class="graphcap text">Graph 6: Cost of Living in Each City Relative to the Distribution of Post- Salaries in Each City</p>
+                </div>
+            </section>
+        </section>
+
+        <section class="conclusion">
+            <h3>Conclusion</h3>
+            <p class="text">Salaries offered are often influenced by degree, industry, job title, location and many other factors. Even though 
+                all records within this sample set are for entry level professionals, each may be entering the work force with their own unique 
+                background. As such, a wide range of salaries is offered. Based on this sample set, approximately two-thirds of entry level 
+                professionals can expect to earn above the average cost of living in New York City, Los Angeles, San Francisco, Chicago and 
+                Washington, DC with an annual pre-tax salary between $45,001 and $55,000. Using the regression model: \(\hat y\) = 9029.9211 + 0.6315x 
+                the respective estimated post-tax salary is between $37,350 and $43,650. Unfortunately for those choosing to move to New York City, 
+                their chance of earning above the average cost of living is much lower than those who move to Chicago - 95% of new graduates in 
+                Chicago earned above average cost of living, 72% in Los Angeles, 66% in Washington DC, 63% in San Francisco, and 41% in New York 
+                City. The data within this sample set is crowdsourced and therefore there is room for error in the data set. The distribution of 
+                industries is 1) heavily weighted towards the technology industry, 2) greatly differed across each city, for example: NYC is ~30% 
+                tech salaries and SF ~70%. In the United States the technology industry is known for paying salaries higher than other industries. 
+                All in all, <bold>the majority of new graduates CAN afford to live in the big cities</bold>, though due to the bias towards high salaries in 
+                this sample set the results may be inflated.</p>
+        </section>
+
+        <section class="ap">
+            <h2>Appendix</h2>
+            <div class="image">
+                <img src="/Users/me.voss/Projects/Portfolio/Coursework/Statistics/resources/Pasted Graphic 1.jpg">
+                <p class="graphcap text">A1: Inital Sample Set Plotted</p>
+            </div>
+            <div class="image underimage">
+                <img src="/Users/me.voss/Projects/Portfolio/Coursework/Statistics/resources/Pasted Graphic 2.jpg">
+                <p class="graphcap text">A2: Comparison of density plots before and after removing outliers</p>
+            </div>
+                
+                
+            </section>
+        </section>
+
+        <section class="appendix">
+            <h2>Bibliography/Citations</h2>
+            <ol>
+                <li class="text"><span class="bold">Author:</span> WSJ.com Graphics<br>
+                    <span class="bold">Article title:</span> Where Graduates Move After College<br>
+                    <span class="bold">Website title:</span> WSJ<br>
+                    <span class="bold">URL:</span> https://www.wsj.com/graphics/where-graduates-move-after-college/</li>
+
+                <li class="text underimage"><span class="bold">Author:</span> Cost of Living<br>
+                    <span class="bold">Article title:</span> Cost of Living Index. Updated Feb 2020<br>
+                    <span class="bold">Website title:</span> Expatistan, cost of living comparisons<br>
+                    <span class="bold">URL:</span> https://www.expatistan.com/cost-of-living/index</li>
+
+                <li class="text underimage"><span class="bold">Author:</span> Comparably - Transparent Compensation & Culture<br>
+                    <span class="bold">Website title:</span> Comparably<br>
+                    <span class="bold">URL:</span> https://www.comparably.com/</li>
+
+                <li class="text underimage"><span class="bold">Author:</span> Tina Orem<br>
+                    <span class="bold">Article title:</span> 2019-2020 Federal Income Tax Brackets and Tax Rates - NerdWallet<br>
+                    <span class="bold">Website title:</span> NerdWallet<br>
+                    <span class="bold">URL:</span> https://www.nerdwallet.com/blog/taxes/federal-income-tax-brackets/</li>
+
+                <li class="text underimage"><span class="bold">Article title:</span> California Income Tax Calculator - SmartAsset<br>
+                    <span class="bold">Website title:</span> SmartAsset<br>
+                    <span class="bold">URL:</span>https://smartasset.com/taxes/california-tax-calculator</li>
+            </ol>
+        </section>
+    </main>
+</body>
+
+</html>

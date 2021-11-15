@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Predicting the presence of coronary heart disease</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="predicting-the-presence-of-coronary-heart-disease.css" type="text/css" rel="stylesheet">
+        <!--fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    </head>
+    
+
+<body>
+
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+        <header>
+            <h1>PREDICTING THE PRESENCE OF CORONARY HEART DISEASE</h1>
+        </header>
+
+        <section class="problem">
+            <h2 id="questionone">Problem Brief</h2>
+            <p class="text">Develop a model that can predict the presence of Coronary Heart Disease in response to certain variables, then use the model 
+                to describe the individual effects of obesity and age on the likelihood of heart diseases. (Word Limit: 400)</p>
+        </section>
+
+        <section class="soln">
+            <h2 id="probsoltwo">Solution Report</h2>
+            <p class="code_used">Method: Logistic Regression, Program: Matlab</p>
+            <p class="text">In Western Cape, South Africa many residents have a high risk of suffering from Coronary Heart Disease (CHD). 
+                A study is conducted to understand which health conditions and life style habits can be connected to CHD. Systolic blood 
+                pressure (sbp), tobacco, bad cholesterol (ldl), famhist, obesity, alcohol and age are used as predictors on the binary 
+                response variable CHD for 462 participants. A logistic regression model is used:</p>
+            <p class="formula text">\(logit (\mu_i) = \sum_{i=1}^n X_{j,i}\beta_j\) <span class="ital">where j represents  predictor variables within Figure 1, 
+                and i individual records of each.</span></p>
+
+            <p class="tablecap">Figure 1. Logistic Regression Model for Predicting the probability of CHD based on the input variables.</p>
+            <table class="borderonly">
+                <tr class="nolines">
+                    <th class="nolines leftside">Variable</th>
+                    <th class="nolines">Coefficient</th>
+                    <th class="nolines">t value</th>
+                    <th class="nolines">Average</th>
+                    <th class="nolines">Person Corr. to Y</th>
+                    <th class="nolines">Spearman Corr to Y</th>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">2: sbp</td>
+                    <td class="nolines rightside">-0.07538</td>
+                    <td class="nolines rightside">-1.81</td>
+                    <td class="nolines rightside">138</td>
+                    <td class="nolines rightside">0.192</td>
+                    <td class="nolines">0.172</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">3: tobacco</td>
+                    <td class="nolines rightside">0.08259</td>
+                    <td class="nolines rightside">3.12</td>
+                    <td class="nolines rightside">3.64</td>
+                    <td class="nolines rightside">0.3</td>
+                    <td class="nolines">0.323</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">4: ldl</td>
+                    <td class="nolines rightside">0.2006</td>
+                    <td class="nolines rightside">3.42</td>
+                    <td class="nolines rightside">4.74</td>
+                    <td class="nolines rightside">0.263</td>
+                    <td class="nolines">0.271</td>
+                    
+                </tr>
+                <tr>
+                    <td class="nolines leftside">5: famhist</td>
+                    <td class="nolines rightside">0.9684</td>
+                    <td class="nolines rightside">4.25</td>
+                    <td class="nolines rightside">0.416</td>
+                    <td class="nolines rightside">0.272</td>
+                    <td class="nolines">0.272</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">6: obesity</td>
+                    <td class="nolines rightside">-0.5205</td>
+                    <td class="nolines rightside">-2.56</td>
+                    <td class="nolines rightside">26</td>
+                    <td class="nolines rightside">0.1</td>
+                    <td class="nolines">0.108</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">8: age</td>
+                    <td class="nolines rightside">0.6753</td>
+                    <td class="nolines rightside">2.51</td>
+                    <td class="nolines rightside">42.8</td>
+                    <td class="nolines rightside">0.373</td>
+                    <td class="nolines">0.367</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">9: sbp<sup>2</sup></td>
+                    <td class="nolines rightside">0.000271</td>
+                    <td class="nolines rightside">1.97</td>
+                    <td class="nolines rightside">1.96e+04</td>
+                    <td class="nolines rightside">0.196</td>
+                    <td class="nolines">0.172</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">11: obesity<sup>2</sup></td>
+                    <td class="nolines rightside">0.008506</td>
+                    <td class="nolines rightside">2.41</td>
+                    <td class="nolines rightside">696</td>
+                    <td class="nolines rightside">0.0979</td>
+                    <td class="nolines">0.108</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">15: age<sup>2</sup></td>
+                    <td class="nolines rightside">-0.01469</td>
+                    <td class="nolines rightside">-2.22</td>
+                    <td class="nolines rightside">2.05e+03</td>
+                    <td class="nolines rightside">0.366</td>
+                    <td class="nolines">0.367</td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">16: age<sup>3</sup></td>
+                    <td class="nolines rightside">0.000108</td>
+                    <td class="nolines rightside">2.06</td>
+                    <td class="nolines rightside">1.05e+05</td>
+                    <td class="nolines rightside">0.353</td>
+                    <td class="nolines">0.367</td>
+                </tr>
+                <tr>
+                    <td class="dashes leftside">Deviance</td>
+                    <td class="dashes rightside">471.60</td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">Deg. Freedom</td>
+                    <td class="nolines rightside">452.00</td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                </tr>
+                <tr>
+                    <td class="nolines leftside">AIC</td>
+                    <td class="nolines rightside">491.60</td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                    <td class="nolines"></td>
+                </tr>
+                
+            </table> 
+            
+            <p class="text underimage">The predictors sbp, obesity and age<sup>2</sup> are negatively correlated,  decreasing the probability of CHD, whereas the 
+                other predictors increase the probability. Both sbp and sbp<sup>2</sup> have a t-value &lt;|2| indicating that they are insignificant (at 
+                95% significance level), but when removed the AIC increases- becoming a worse model.</p>
+            <p class="text">To understand how the predictors age and obesity have impacted the model the following is plotted for each 
+                \(e^{x_i\beta_{age}+ x_i^2\beta_{age^2} +x_i^3\beta_{age^3}}\) and \(e^{x_i\beta_{obesity}+ x_i^2\beta_{obesity^2}} \) respecitvely.</p>
+        </section>
+
+        <section class="split underimage">
+            <div class="left">
+                <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Statistical_Modelling/resources/Age2.jpg">
+                <p class="graphcap">(L) Figure 2: The effect of age on the odds ratio</p>
+            </div>
+            <div class="right">
+                <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Statistical_Modelling/resources/ob3.jpg">
+                <p class="graphcap">(R) Figure 3: The effect of obesity on the odds ratio</p>
+            </div>
+        </section>
+            
+            
+        
+
+        <section class="soln">
+            <p class="text underimage">From Figure 2. It can be seen that age has a dramatic effect on increasing the odds (ranging from 1,323.9 to 
+                84,944) of P(CHD=1), and as age increases so does its influence. Of the ten predictors 3 are age variables, it is likely 
+                that age affects the probability of CHD more than any other variable type. Obesity on the other hand, has less of an effect 
+                on \(logit (\mu_i)\); in the presence of the other predictors obesity's highest effect on the odds of P(CHD=1) is 0.0029886 
+                at obesity=14.7. Obesity has the least amount of effect (.000348) when obesity= 30.7. Though the coefficient of obesity is 
+                negative and obesity<sup>2</sup> is positive the overall effect of obesity on P(CHD=1) is positive.</p>
+            <p class="text">When age is plotted against CHD without any of the other predictor variables P(CHD=1) increases with age at a 
+                more constant rate than the odds ratio. According to the linear and quadratic models, obesity without other predictors also 
+                increases as obesity increases. The cubic model shows that those having the lowest probability of experiencing CHD are within 
+                the healthy obesity range (~19-24). These outcomes are unlike obesity in the presence of other predictors where the minimum 
+                influence occurs when one is considered obese ( obesity range: 30-39).</p>
+            <p class="text">That is to say, in the presence of other predictors the coefficients of each variable do not necessarily 
+                represent the individual predictors influence on P(CHD=1) as they are altered by multicollinearity.</p>
+        </section>
+
+        <section class="split underimage">
+            <div class="left">
+                <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Statistical_Modelling/resources/age1.jpg">
+                <p class="graphcap text">(L) Figure 4: Plot of linear (orange), quadratic (yellow) and cubic (purple) equations of age, and 
+                    \(\mu(x)\) = age, age<sup>2</sup> and age<sup>3</sup> (green)</p>
+            </div>
+            <div class="right">
+                <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Statistical_Modelling/resources/Screenshot 2021-08-11 at 5.15.10 PM.png">
+                <p class="graphcap text">(R) Figure 5: Plot of linear (orange), quadratic (yellow) and cubic (purple) equations of obesity, and  
+                    \(\mu(x)\) = obesity, obesity<sup>2</sup> (green)</p>
+            </div>
+        </section>
+            
+            
+        
+
+        <section class="appendix">
+            <h2 class="sect">Appendix</h2>
+            <p class="text">Model Selection Method:</p>
+            <p class="text">The process begins with including all variables. The AIC is documented, then the variable with the lowest 
+                t-value below absolute 2 is removed and the model is recalculated. This process continues until either all individual 
+                variables are within 95% confidence level, or the lowest AIC is found.</p>
+            <section class="apptab">
+                <p class="tablecap">Table 1: Logit, and age, ,age<sup>2</sup> and age<sup>3</sup></p>
+                <table border="1">
+                    <tr>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                        <th></th>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1:16</td>
+                        <td>502.96</td>
+                        <td></td>
+                        <td>5</td>
+                        <td>1:6, 8, 9, 11, 12, 15, 16</td>
+                        <td>495.23</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1:6, 8:16</td>
+                        <td>500.99</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>1:6, 8, 9, 11, 15, 16</td>
+                        <td>493.39</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1:6, 8:13, 15, 16</td>
+                        <td>499.06</td>
+                        <td></td>
+                        <td class="red">7</td>
+                        <td class="red">2:6, 8, 9, 11, 15, 16</td>
+                        <td class="red">491.6</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1:6, 8, 9, 11:13, 15, 16</td>
+                        <td>497.13</td>
+                        <td></td>
+                        <td>8</td>
+                        <td>3:6, 8, 9, 11, 15, 16</td>
+                        <td>493.04</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="apptab">
+                <p class="tablecap">Table 2: Probit, and age, ,age<sup>2</sup> and age<sup>3</sup></p>
+                <table border="1">
+                    <tr>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                        <th></th>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1:16</td>
+                        <td>502.85</td>
+                        <td></td>
+                        <td>5</td>
+                        <td>1:6, 8, 9, 11, 12, 15, 16</td>
+                        <td>495.17</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1:6, 8:16</td>
+                        <td>500.87</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>1:6, 8, 9, 11, 15, 16</td>
+                        <td>493.4</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1:6, 8, 9, 11:16</td>
+                        <td>498.95</td>
+                        <td></td>
+                        <td class="red">7</td>
+                        <td class="red">2:6, 8, 9, 11, 15, 16</td>
+                        <td class="red">491.95</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1:6, 8, 9, 11, 12, 14:16</td>
+                        <td>497.104</td>
+                        <td></td>
+                        <td>8</td>
+                        <td>3:6, 8, 9, 11, 15, 16</td>
+                        <td>492.92</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="apptab">
+                <p class="tablecap">Table 3: Logit, and  categories of age with binary inputs</p>
+                <table border="1">
+                    <tr>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                        <th></th>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1:7, 9:14, 22:30</td>
+                        <td>510.47</td>
+                        <td></td>
+                        <td>5</td>
+                        <td>1:6, 9;11, 23:30</td>
+                        <td>503.18</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1:7, 9:11, 13, 14, 22:30</td>
+                        <td>506.86</td>
+                        <td></td>
+                        <td>6</td>
+                        <td>1:6, 9, 11, 23:30</td>
+                        <td>501.18</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1:6, 9:11, 13, 14, 23:30</td>
+                        <td>506.65</td>
+                        <td></td>
+                        <td class="red">7</td>
+                        <td class="red">1:6, 9, 11, 23:25, 27:30</td>
+                        <td class="red">501.46</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1:6, 9:11, 13, 23:30</td>
+                        <td>504.85</td>
+                        <td></td>
+                        <td>8</td>
+                        <td>1:6, 11, 23:25, 27:30</td>
+                        <td>502.16</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="apptab">
+                <p class="tablecap">Table 4: Probit, and categories of age with binary inputs</sup></p>
+                <table border="1">
+                    <tr>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                        <th></th>
+                        <th>Trial No.</th>
+                        <th> Columns</th>
+                        <th>AIC</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>1:7, 9:14, 22:30</td>
+                        <td>508.81</td>
+                        <td></td>
+                        <td class="red">6</td>
+                        <td class="red">1:6, 9, 11, 22:30</td>
+                        <td class="red">499.38</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1:7, 9:11, 13, 14, 22:30</td>
+                        <td>506.86</td>
+                        <td></td>
+                        <td>7</td>
+                        <td>1 3:6, 9, 11, 22:30</td>
+                        <td>500.19</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>1:7, 9, 11, 13, 14, 22:30</td>
+                        <td>504.98</td>
+                        <td></td>
+                        <td>8</td>
+                        <td>1, 3:6, 11, 22:30</td>
+                        <td>499.96</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>1:7 9 11 14 22:30</td>
+                        <td>503.06</td>
+                        <td></td>
+                        <td>9</td>
+                        <td>3:6 11 22:30</td>
+                        <td>499.69</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>1:6 9 11 14 22:30</td>
+                        <td>501.19</td>
+                        <td></td>
+                        <td>10</td>
+                        <td>3:6 11 23:30</td>
+                        <td>501.65</td>
+                    </tr>
+                </table>
+            </section>
+
+        </section>
+    </main>
+</body>
+
+</html>

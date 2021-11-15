@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<hmtl>
+
+    <head>
+        <title>Simulating the inflow of patients at a hospital over 31 days.</title>
+        <!--API to use latex eqs-->
+        <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <link href="hospital-inflow-simulation.css" type="text/css" rel="stylesheet">
+      <!--fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+      <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+  </head>
+
+    <body>
+        <main>
+
+
+            <nav class="navbar-fixed-top-black">
+                <ul style="list-style-type:none;">
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="courseworkhome.html">projects</a></li>
+                    <li><a href="resume.html">resume</a></li>
+                    <li><a href="contact.html">contact</a></li>
+                </ul>
+            </nav>
+
+            
+
+            <section class="content">
+
+                <header>
+                    <h1>Hospital Simulation</h1>
+                </header>
+
+                <section class="problem">
+                    <h2 id="questionone">Problem Brief</h2>
+                    <p class="text">ABC NHS Trust provides medical services for around half a million people. The focus here is on inpatient, non-
+                        emergency services such as surgery for a given medical specialty.</p>
+                    <p class="text">The Department of Health has defined the Referral to Treatment Time (RTT) as a key performance measure; this is 
+                        the time from a patient's referral to the start of treatment. Each patient arrives at ABC having already waited 
+                        (the time since referral) a time called Elasped Time Since Referral (ETSR). Only the ABC system will be the time 
+                        from arrival at ABC to treatment at ABC, a patient's RTT = ETSR + W.</p>
+                    <p class="text">Patients are classified as either urgent (U) or routine (R). Inter-arrival times are assumed to be independent and 
+                        exponentially distributed. The rate of arrivals, per day is 3.69 for urgent and 2.19 for routine. Recall that the 
+                        mean inter-arrival time is the time it takes (on average) for one arrival, and is the inverse of the arrival rate 
+                        (the number of arrivals per unit time, on average). Service (treatment) times are constant (fixed) and equal to 
+                        1/6 days.</p>
+                    <p class="text">ETSR is modelled as follows: for <span class="bold">R patients, it has a Normal Distribution with mean 70 days and standard Deviation 
+                        15 days</span> (negative samples may be reset to zero; for simplicity this is not required); for <span class="bold">U patients it has 
+                        an Exponential Distribution with mean 50 days.</span> Services is given according to the following priority rule:</p>
+                    <ul>
+                        <li class="text">U patients have priority over R ones</li>
+                        <li class="text">Within each type (U, R) priority is given to those with higher ETSR</li>
+                    </ul>
+                    <p class="text">This priority rule is complete (ties are virtually impossible): since both ETSR distributions are continuous, the 
+                        probability that any two patients have the same ETSR is zero. We aim for a basic simulation in which patients are 
+                        treated as Simul8's generic items (patients' appointments are not modelled). <span class="bold">Output of interests 
+                        are: (1) The fraction of patients whose RTT is no more than 18 weeks, (2) The effect of the priority rule on average 
+                        waiting times. Specifically for each case, U and R, let x denote the ETSR as follows: x \(\leq\) F-1 (1/3) is small (S); 
+                        x > F-1 (2/3) is large (L); otherwise it is medium (M). We want to estimate the mean waiting time at ABC (the W above) 
+                        for each of the six categories formed by the patient types (U, R) and ETSR categories (S, M, L).</span></p>
+                    <p class="text">These outputs refer to long-run behaviour (steady state), but early parts of a simulation tend to depend heavily on 
+                        the choice of initial system state (that is, at time zero). Thus: assume the initial system state is "empty"; use a 
+                        warm-up of 200 days; and exclude the data observed during the warm-up. For consistency, all times should be measured 
+                        in days.</p>
+                </section>
+
+                <section class="soln">
+                    <h2 id="probsoltwo">Solution Report</h2>
+                    <p class="code_used">The inflow and outflow of hospital patients needing routine or urgent care was simulated using Simul8. 
+                        (250-word limit)</p>
+                </section>
+
+                <section class="vid">
+
+                </section>
+
+                <section class="report">
+
+                    <div class="iframe-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/OWyGbMoIyBw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                    </div>
+                    <p class="graphcap">Assignment simulation example over a period of 31 days.</p>
+                    
+
+                    <p class="text underimage">Two trials each consisting of 500 runs were conducted: one at a 95% confidence interval level and the other at 99%. 
+                        There was a warmup period of 200 days, and each run lasted 2000 days. The trials produced near identical results 
+                        reflective of steady state behavior. Results in Table 1.</p>
+                    <p class="text">To gain insight into the main points of interests, RTT \(\leq\) 18 weeks and the effects of priority rules on average waiting 
+                        time, the following visual logic entries were written using labels (arrivalTime, ETSR, W, RTT, Patient)</p>
+                    <ul>
+                        <li class="text">Exit on Queues:</li>
+                            <ul>
+                                <li class="text">Calculates waiting times</li>
+                                <li class="text">IF, ELSE IF and ELSE segments ETSR into categories based on thresholds</li>
+                                <li class="text">Counts the number of patients within groups and sums their waiting times</li>
+                            </ul>
+                        <li class="text">Treatment route in after logic:</li>
+                            <ul>
+                                <li class="text">RTT is now calculated as all waiting is completed</li>
+                                <li class="text">Identifies patients within RTT threshold</li>
+                            </ul>
+                        <li class="text">End logic:</li>
+                            <ul>
+                                <li class="text">Counts total patients within the system</li>
+                                <li class="text">Calculates:</li>
+                                    <ul>
+                                        <li class="text">Fraction of those whose RTT \(\leq\)18 weeks</li>
+                                        <li class="text">Average waiting time within each category once patient arrives at hospital for appointment</li>
+                                    </ul>
+                            </ul>
+                    </ul>
+                
+                    <p class="text">Considering that 'patients seen within 18 weeks' is a KPI, results show there is room for improvement. In the case 
+                        of priority rules, there was an insignificant difference amongst those categorized as urgent. Conversely, the gap 
+                        between the shortest Routine average waiting time and the longest Urgent average waiting time is approximately 1.14 
+                        hours. Amongst Routine patients Medium waited 42 minutes longer than Large. However, those in Routine-Small have a 
+                        drastically longer waiting time of a day and a third (over a day longer than any other patient type). This waiting 
+                        period needs to be improved, both in comparison to the other 5 categories, and because it is longer than a day.</p>
+
+                </section>
+
+                <section class="tab">
+                    <p class="tablecap">Table 1: Outcome of 2 trial simulations stated in days</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" rowspan="2"></th>
+                                <th scope="col" rowspan="2">ETSR</th>
+                                <th scope="col" rowspan="2">Patient Type</th>
+                                <th scope="col" colspan="3">Trial 1 at 95% CI (500 runs)</th>
+                                <th scope="col" colspan="3">Trial 2 at 95% CI (500 runs)</th> 
+                            </tr>
+                            <tr>
+                                <th scope="col">Low 95%</th>
+                                <th scope="col">Average</th>
+                                <th scope="col">High 95%</th>
+                                <th scope="col">Low 99%</th>
+                                <th scope="col">Average</th>
+                                <th scope="col">High 99%</th>
+                        
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Small</td>
+                                <td>Routine</td>
+                                <td>1.31</td>
+                                <td>1.33948</td>
+                                <td>1.37</td>
+                                <td>1.3</td>
+                                <td>1.33948</td>
+                                <td>1.38</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Medium</td>
+                                <td>Routine</td>
+                                <td>0.31</td>
+                                <td>0.30868</td>
+                                <td>0.31</td>
+                                <td>0.31</td>
+                                <td>0.30868</td>
+                                <td>0.31</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Large</td>
+                                <td>Routine</td>
+                                <td>0.22</td>
+                                <td>0.22089</td>
+                                <td>0.22</td>
+                                <td>0.22</td>
+                                <td>0.22089</td>
+                                <td>0.22</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Small</td>
+                                <td>Urgent</td>
+                                <td>0.08</td>
+                                <td>0.07857</td>
+                                <td>0.08</td>
+                                <td>0.08</td>
+                                <td>0.07867</td>
+                                <td>0.08</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Medium</td>
+                                <td>Urgent</td>
+                                <td>0.08</td>
+                                <td>0.07725</td>
+                                <td>0.08</td>
+                                <td>0.08</td>
+                                <td>0.07725</td>
+                                <td>0.08</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Average Waiting Time (W)</th>
+                                <td>Large</td>
+                                <td>Urgent</td>
+                                <td>0.08</td>
+                                <td>0.07604</td>
+                                <td>0.08</td>
+                                <td>0.08</td>
+                                <td>0.07604</td>
+                                <td>0.08</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RTT \(\leq\)18 weeks (%)</th>
+                                <td></td>
+                                <td></td>
+                                <td>0.95</td>
+                                <td>0.94689</td>
+                                <td>0.95</td>
+                                <td>0.95</td>
+                                <td>0.94689</td>
+                                <td>0.95</td>
+                            </tr>
+                            
+
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                        </table>
+                </section>
+            </section>
+        </main>
+    </body>
+</hmtl>

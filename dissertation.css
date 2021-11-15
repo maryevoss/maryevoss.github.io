@@ -1,0 +1,677 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3C4142;
+}
+
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+/* sizing for all content below nav */
+.content{
+    width: 70%;
+    margin: 0px auto;
+}
+
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* about 40px between h1 and h2, not sure why, might need to put them in a sole container */
+h2 {
+    font-family: 'Bebas Neue';
+    font-size: 1.5rem;
+    color: #0B5394;
+   
+}
+
+h3 /*main section headings 1,2,etc*/ {
+    font-size: 1.15rem;
+    margin-top: 42px;
+    color: #3d85c6;
+}
+
+/*spacing between sections & paragrphs */
+
+#questionone /* first line under title heading */ {
+    padding-top: 0px;
+}
+
+.sect /*main section headings 1,2,etc*/ {
+    font-size: 1.15rem;
+    margin-top: 42px;
+    color: #3d85c6;
+}
+
+.sect1 /*section heading directly following main section heading #.x */{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-bottom: -5px;
+}
+
+.sect1b /*section heading directly following main section heading #.x.y */{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-top: 20px;
+    margin-bottom: -5px;
+    font-style: italic;
+    font-weight: 200px;
+   
+}
+
+.sect2{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-top: 36px;
+    margin-bottom: -5px;
+    font-style: italic;
+    font-weight: 200px;
+}
+
+.sect2b{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-top: 20px;
+    margin-bottom: -5px;
+    font-style: italic;
+    font-weight: 200px;
+}
+
+
+
+#questionone {
+    padding-top: 0px;
+}
+
+h4 {
+    text-decoration: underline;
+}
+/*  underlining task headers within equations section*/
+.unders {
+    text-decoration: underline;
+}
+
+#probsoltwo{
+    padding-top: 45px;
+}
+
+.code_used {
+    background-color: #e6f3d8;
+    color: green;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+img {
+    margin: 0 auto;
+    display: block;
+    border: 1px solid gray;
+    width: 100%;
+    
+}
+
+.image{
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.image2{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.image3{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.graphcap {
+    font-size: .9rem;
+    text-align: center;
+}
+
+
+/*for equations */
+
+.function {
+    font-weight: bold;
+}
+
+.eq {
+    line-height: 2;
+    text-indent: 100px;
+}
+
+.eq1 {
+    text-indent: 180px;
+}
+
+.eq2 {
+    text-indent: 200px;
+}
+
+#rightside {
+    float: right;
+}
+
+
+/*spacing betweeen graphs, images & text paragraphs*/
+
+
+.underimage {
+    padding-top: 30px;
+}
+
+.abovegraph {
+    margin-bottom: 75px;
+}
+
+.abovegraph1{
+    margin-bottom: 45px;
+}
+
+.shorterdist {
+    margin-bottom: -10px;
+}
+
+.equation{
+    overflow: scroll;
+}
+
+/* 'let' variable section- indenting and spacing all equations */
+
+
+
+/* bold and line spacingwithin paragraphs*/
+.bold {
+    font-weight: bold;
+}
+
+.ital {
+    font-style: italic;
+    font-family: "Lora";
+}
+
+.text {
+    line-height: 1.75;
+}
+
+#variables p {
+    margin-bottom: -20px;
+    text-indent: 100px;
+}
+
+
+.indent {
+    text-indent: 200px;
+}
+
+.indent1 {
+    text-indent: 250px;
+    margin-bottom: 30px;
+}
+
+.indent2 {
+    text-indent: 50px;
+}
+
+.indent3{
+    margin-left: 10px;
+    margin-bottom: -5px;
+}
+
+
+
+.rightside {
+    float: right;
+}
+
+
+/*      LINE SPACING      */
+
+
+/*line spacing for citations*/
+#bibli {
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/*line spacing for equations */
+.spacing {
+    line-height: 2.5rem;
+}
+
+/*line spacing for list items*/
+.textlist {
+    margin-bottom: 15px;
+}
+/* padding at the bottom of the page */
+.nine {
+    padding-bottom: 80px;
+}
+
+
+/*       CREATING GRID FOR GRAPHS     */
+
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid1 {
+    width: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.grid2 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+/*design for tables*/
+
+
+/*design for tables*/
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 36px;
+}
+
+td, th{
+    padding: 10px 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.tablecap {
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 1440px) {
+    /* adjusts for larger than a typical laptop screen */
+    .content {
+        width: 60%;
+    }
+    .image{
+        width: 403px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .image2{
+        width: 806px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .image3{
+        width: 605px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .grid1 {
+        width: 504px;
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+    .grid2 {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* SMALLER */
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 80%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    .image{
+        width: 45%;
+    } 
+    .image2 {
+        width: 80%;
+    }
+    .image3{
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    .image{
+        width: 50%;
+    } 
+    .image2 {
+        width: 85%;
+    }
+    .image3{
+        width: 70%;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    .content{
+        width: 75%;
+    }
+    .image{
+        width: 60%;
+    } 
+    .image2 {
+        width: 90%;
+    }
+    .image3{
+        width: 75%;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .content{
+        width: 80%;
+    }
+    .image{
+        width: 60%;
+    } 
+    .image2 {
+        width: 90%;
+    }
+    .image3{
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 660px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2.25rem;
+    }
+    .content{
+        width: 85%;
+    }
+    /* width of images */
+    .image{
+        width: 70%;
+    } 
+    
+    .image2, .image3{
+        width: 90%;
+    }
+    .grid1 {
+        width: 50%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .grid2 /*changing direction from row to col*/{
+        display: flex;
+        flex-direction: row;
+    }
+
+    /* shortening equation indents*/
+    .indent {
+        text-indent: 20px;
+        font-size: .85rem;
+    }
+    .indent1 {
+        text-indent: 70px;
+        margin-bottom: 20px;
+    }
+    .indent2{
+        text-indent: 10px;
+    }
+    table {
+        border: 0px solid black;
+    }
+    table  { margin-top:  20px; display: inline-block; overflow: auto; }
+    th div { margin-top: -20px; position: absolute; }
+}
+
+
+
+@media only screen and (min-width: 400px) and (max-width: 669px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.35rem;
+    }
+    h3, .sect /*main section headings 1,2,etc*/ {
+        font-size: 1rem;
+    }
+    /*width of page*/
+    .content{
+        width: 90%;
+    }
+
+    .sect1, .sect2 /*section heading directly following main section heading #.x */{
+        font-size: 1rem;
+    }
+    .sect1b, .sect2b /*section heading directly following main section heading #.x.y */{
+        font-size: 1rem;
+    }
+    .graphcap {
+        font-size: .8rem;
+    }
+    .inline_eq{
+        font-size: .85rem;
+    }
+
+    /* width of images */
+    .image{
+        width: 80%;
+    } 
+    
+    .image2, .image3{
+        width: 100%;
+    }
+    .grid1 {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .grid2 /*changing direction from row to col*/{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* shortening equation indents*/
+    .indent {
+        text-indent: 20px;
+        font-size: .85rem;
+    }
+    .indent1 {
+        text-indent: 70px;
+        margin-bottom: 20px;
+    }
+    .indent2{
+        text-indent: 10px;
+    }
+    table {
+        border: 0px solid black;
+    }
+    table  { margin-top:  20px; display: inline-block; overflow: auto; }
+    th div { margin-top: -20px; position: absolute; }
+}
+
+/*phone size*/
+
+@media only screen and (max-width: 399px) {
+    /*nav bar*/
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+    a {
+        font-size: 1rem;
+    }
+
+    /* font sizes */
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    h3, .sect /*main section headings 1,2,etc*/ {
+        font-size: 1rem;
+    }
+    .sect1, .sect2 /*section heading directly following main section heading #.x */{
+        font-size: 1rem;
+    }
+    .sect1b, .sect2b /*section heading directly following main section heading #.x.y */{
+        font-size: 1rem;
+    }
+    .graphcap {
+        font-size: .8rem;
+    }
+    .inline_eq{
+        font-size: .85rem;
+    }
+
+    /*width of page*/
+    .content{
+        width: 90%;
+    }
+
+    /* width of images */
+    .image, .image2, .image3{
+        width: 100%;
+    }
+    .grid1 {
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    .grid2 /*changing direction from row to col*/{
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* shortening equation indents*/
+    .indent {
+        text-indent: 0px;
+        font-size: .85rem;
+    }
+    .indent1 {
+        text-indent: 25px;
+        margin-bottom: 20px;
+    }
+    .indent2{
+        text-indent: 0px;
+        font-size: .9rem;
+        line-height: 3;
+    }
+   .shrinkfont{
+       font-size: .9rem;
+   }
+    table {
+        border: 0px solid black;
+    }
+    table  { margin-top:  20px; display: inline-block; overflow: auto; }
+    th div { margin-top: -20px; position: absolute; }
+}

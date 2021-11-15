@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <title>A Case Study: Optimising Fuel Flow for the Falcon Heavy During First Stage Burn</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="nonlinear.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  
+
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+    <header>
+        <h1>Case Study: Optimising Fuel Flow for the Falcon Heavy During First Stage Burn</h1>
+    </header>
+
+    <section class="problem">
+        <h2 id="probsol">Problem Brief</h2>
+        <p class="text">The Falcon Heavy launch vehicle, designed to carry humans into space, does not reach the height necessary for 
+            successful operations. Preliminary analysis has indicated that the issue stems from an underperforming first 
+            stage, more precisely from a suboptimal flow of fuel into the combustion chamber of the rocket engine. <span class="bold">You 
+            are tasked with optimising the fuel flow in order to maximise the height of the rocket at the end of the first 
+            stage burn.</span></p>
+    </section>
+
+    <section class="soln">
+        <h2 id="probsoltwo">Solution Report</h2>
+        <p class="code_used">Model was coded using AMPL.</p>
+    </section> 
+
+    <section id="introduction">
+        <h3 id="questionone">Introduction</h3>
+        <p class="text">The Falcon Heavy rocket ship is being designed by SpaceX with the purpose of shuttling humans into space. Unfortunately it is not ready for its maiden voyage due to complications. During testing it was found that the rocket cannot achieve the height needed to become a successful mission. Upon further investigation it was discovered that the first stage burn is performing sub-optimally because of the fuel flow into the rocket engine's combustion chamber.</p>
+        <p class="text">The affects of fuel flow on the maximum height of the rocket at the end of first stage burn can be understood by evaluating the following variables as they transition through time:</p>
+        <p class="eq">height: [t<sub>0</sub>, t<sub>final</sub>] -> R</p>
+        <p class="eq">velocity: [t<sub>0</sub>, t<sub>final</sub>] -> R</p>
+        <p class="eq">mass: [t=<sub>0</sub>, t<sub>final</sub>] -> R </p>
+
+        <p class="text">To do so, the first derivative of each  is calculated. From equation (1) height increases proportionally with velocity as time increases. (2)  is acceleration at time t,  and mass (3) is negatively proportional to thrust at time t. Lastly drag/friction is also relative to time, velocity and height:</p>
+
+        <p class="eq1">\(h'(t) = v(t)\))<span id="rightside">(1)</span></p>
+        <p class="eq1">\(v'(t) = {\theta(t)- D(h(t),v(t)\over m(t)}- ({h(0)\over h(t)})^2\)<span id="rightside">(2)</span></p>
+        <p class="eq1">\(m'(t) = -2\theta(t)\)<span id="rightside">(3)</span></p>
+        <p class="eq1">\(D(h(t),v(t)) := D_0 \times (v(t))^2 \times exp(-h_0 {h(t)-h(0)\over h(0)})\)<span id="rightside">(4)</span></p>
+
+        <p class="text underimage">Where 't' is any given time within \([t_0, t_{final}]\). The rocket begins take off at t<sub>0</sub> and will finish firing at \(t_{final}\).</p>
+        <p class="text">Ideally, there will only be a global solution (not multiple local optimal points), so using the second derivative convexity is tested. It can quickly be seen that <em>m''(t)&lt;0</em> inferring that the problem is non-convex.</p>
+    </section>
+
+    <section id="formulation">
+        <h3>Formulation of Model</h3>
+        <p class="text">As t<sub>final</sub> is unknown, there is no upper constraint on time and it is essentially infinite. This lack of boundary adds to the difficulties of finding an optimum solution as there are now also infinite decision variables. To overcome this, time is discretised into intervals using a parameter N, where t<sub>i</sub> = i/N * t<sub>final</sub>, for i= 0..N and t<sub>final</sub> = t<sub>N</sub>.</p>
+        <p class="text">Another adjustment that will lessen the computational strain, the aforementioned functions (1-3) are converted into finite difference equations using numerical differentiation. The step lengths will be dictated by t<sub>final</sub>/N and will therefore change depending on N and t<sub>final</sub>. These transformations convert the problem into a nonlinear optimisation problem.</p>
+        <p class="variables">Velocity: \(\overline v_k\) = velocity at k<sup>th</sup> time step for k=0..N</p>
+        <p class="variables">Height: \(\overline h_k\) = height at k<sup>th</sup> time step for k=0..N</p>
+        <p class="variables">Mass: \(\overline m_k\) = mass at k<sup>th</sup> time step for k=0..N</p>
+        <p class="variables">Thrust: \(\overline \theta_k\) = thrust at k<sup>th</sup> time step for k=0..N</p>
+        <p class="variables">Friction: \(D(\overline h_k,\overline v_k)\) = friction with the atmosphere in relative to height and velocity of the rocket at time t</p>
+        <p class="variables">t<sub>final</sub>: the time at the end of max height</p>
+        <p class="variables">N: the number of steps in time</p>
+
+        <section class="modeleq">
+            <p class="objective underimage "> \(\max\limits_{t_{final} \in \rm I\!R^N \overline h, \overline v, \overline m, \overline \theta \in \rm I\!R^{N+1} }\) <span>\(\overline h_N\)</span></p>
+            <p class="st underimage"><span class="bold">subject to: \(\qquad\) </span>\(N(\overline h_1 - \overline h_0) = t_{final} \times \overline v_0\)<span id="rightside">(5)</span></p>
+            <p class="eq2">\(N(\overline h_{k+1} - \overline h_{k-1}) = 2t_{final} \times \overline v_k\)<span id="rightside">(6)</span></p>
+            <p class="eq2">\(N(\overline h_N - \overline h_{N-1} = t_{final} \times \overline v_N\)<span id="rightside">(7)</span></p>
+            <p class="eq2">\(N(\overline v_1 -\overline v_0) = t_{final} ( {\theta_0 - D(\overline h_0, \overline v_0) \over \overline m_0} - ({h(0)\over h_0})^2)\)<span id="rightside">(8)</span></p>
+            <p class="eq2 underimage">\(N(\overline v_{k+1} -\overline v_{k-1}) = 2t_{final} ( {\theta_k - D(\overline h_k, \overline v_k) \over \overline m_k} - ({h(0)\over h_k})^2)\)<span id="rightside">(9)</span></p>
+            <p class="eq2">\(N(\overline v_N -\overline v_{N-1}) = t_{final} ( {\theta_N - D(\overline h_N, \overline v_N) \over \overline m_N} - ({h(0)\over h_N})^2)\)<span id="rightside">(10)</span></p>
+            <p class="eq2">\(N(\overline m_1 - \overline m_0) = t_{final} \times (-2\theta_0)\)<span id="rightside">(11)</span></p>
+            <p class="eq2 underimage">\(N(\overline m_{k+1} - \overline m_{k-1}) = 2t_{final} \times (-2\theta_k)\)<span id="rightside">(12)</span></p>
+            <p class="eq2">\(N(\overline m_N - \overline m_{N-1}) = t_{final} \times (-2\theta_N)\)<span id="rightside">(13)</span></p>
+            <p class="eq2 underimage">\(D(\overline h, \overline v) = D_0 \times (\overline v)^2 \times exp(-h_0 {\overline h_k- h(0) \over h(0)})\)<span id="rightside">(14)</span></p>
+            <p class="eq2 underimage">\(v(0) = 0\)<span id="rightside">(15)</span></p>
+            <p class="eq2">\(h(0) = 1\)<span id="rightside">(16)</span></p>
+            <p class="eq2">\(m(0) = 1\)<span id="rightside">(17)</span></p>
+            <p class="eq2">\(m(t_{final}) = 0.6\)<span id="rightside">(18)</span></p>
+            <p class="eq2 underimage">\(v(t) \geq 0\)<span id="rightside">(19)</span></p>
+            <p class="eq2">\(h(t) \geq h(0)\)<span id="rightside">(20)</span></p>
+            <p class="eq2">\(m(t_{final}) \leq m(t) \leq m(0)\)<span id="rightside">(21)</span></p>
+            <p class="eq2">\(0\leq \theta(t) \leq \theta_{max}\)<span id="rightside">(22)</span></p>
+        </section>
+
+        <section class="parameters">
+            <p class="underimage"> Constant Parameters:\(\quad \theta_{max} := 3.5\)</p>
+            <p class=params>\(h_0 := 500\)</p>
+            <p class=params>\(v_0 := 620\)</p>
+            <p class=params>\(D_0 := v_0/2\)</p>
+        </section>
+
+        <section class="additionaleq underimage">
+            <p class="text">The following equations are also used as initial conditions:</p>
+            <p class="eq1">\(Velocity: v(t) = ({t \over t_{final}})(1-{t \over t_{final}})\)<span id="rightside">(23)</span></p>
+            <p class="eq1">\(Mass:m(t)= 1+({t \over t_{final}})(0.6-1)\)<span id="rightside">(24)</span></p>
+        </section>
+
+        <p class="text underimage">Equation (18) states that the mass of the rocket at t<sub>final</sub> is 0.6, this is because 0.4 of the mass is fuel.
+            The discretisation of time has led to 4N decision variables, where N = 50, 100, 200 or 400. There
+            are a total of 14 constraints, with equations (8), (9), (10), and (11) being nonlinear.</p>
+
+    </section>
+            
+
+    <section class="assumptions">
+        <h3>Assumptions</h3>
+        <ol>
+            <li class="text">The rocket can continue rising after all fuel has been consumed by using the residual momentum to achieve a maximum height.</li>
+            <li class="text">The rocket's direction and path is always straight upward.</li>
+            <li class="text">Thrust is linearly proportional to fuel burned, therefore the engine burns fuel equally efficiently regardless of fuel burn rate.</li>
+            <li class="text">By taking educated guesses at setting parameter <em>N</em>, an appropriate step length can be found and will accurately depict the maximum height.</li>
+            <li class="text">Though the solution found is a local maximum, there's hope it is also the global maximum.</li>
+        </ol>
+    </section>
+
+    <section class="description">
+       <h3>Brief Description On How It's Solved</h3> 
+       <p class="text">
+           Four different solvers are used within AMPL: LOQO, SNOPT, KNITRO, and MINOS. Each is
+            known for its ability to solve local maxima/minima in nonlinear, non-convex optimisation
+            problems.
+        </p>
+        <p class="text">
+            To initialise the model given starting points are inputted: \(t_{final}=1, \overline h_k=1, \overline \theta_k= \theta_{max}/2\), and the
+            values N = 50, 100, 200, 400 are tested. Between the combinations of solvers and parameter N,
+            there are 16 trials within the first round of testing.
+        </p>
+        <p class="text">
+            Additionally, using a quadratic equation to describe the starting point of \(v(t)\) is the simplest
+            polynomial order that can be used to represent the expected behaviour of velocity at times
+            \(v(t=0)=0\) and \(v(t=t_{final})=0\), with there being a peak at step \(t=k\)could be 1,...,
+            N-1). Therefore the given initial condition seems suitable and does not need to be changed. The
+            starting point for mass, \(m(t)= 1+({t \over t_{final}})(0.6-1)\) indicates that mass burn is linear with time
+            and ranges between 1 to 0.6.
+        </p>
+        <p class="text">
+            Because the problem is non-convex, the starting points matter. A second round of 16 trials is then
+            tested using the starting point \(t_{final}= 0.5\). All other starting points, N values and solvers from the
+            first round are kept the same.
+        </p>
+        <p class="text">
+            Data associated with time, velocity, height, mass and thrust are documented at each step for all
+            trials. An emerging pattern demonstrated that trails with more steps (and shorter step lengths) had
+            better results when using solvers SNOPT and KNITRO. This led to testing other combinations of
+            starting points where \(\overline h_k=0.5\) and \(\overline \theta_k= \theta_{max}\). Other random starting points were tested, but results
+            were never improved using them (so it seemed unnecessary to document them).
+        </p>
+        <p class="text">
+            As the output of the objective will need to be rescaled to know the true height, the stopping criteria
+            is set to 9 digits of accuracy: &epsilon; &le; .1e<sup>-8</sup> between the two highest heights. To analyse results data
+            within each table were reviewed and various combinations of decision variables were plotted on 2D
+            graphs.
+        </p>
+    </section>
+
+    <section class="results">
+        <h3>Results</h3>
+        <section class="first16">
+            <h4>Results for 16 Initial Trials</h4>
+            <p class="text">
+                When parameter <em>N</em> used higher values, \(\overline h_k\) was more likely to achieve greater heights for all solvers
+            except for MINOS (which performed worse as <em>N</em> increased). For all 16 trials, the predictor variable
+            'Thrust' was plotted against the response variable 'Height'. Visualising the data uncovered three
+            phases, and two main types of patterns of fuel flow. Trials 7 (Figure 1) and 12 (Figure 2) are
+            examples of the patterns (refer to table A1 to see starting points and solvers used) .
+            </p>
+            <p class="text">
+                During the second phase of the burn, trial 12 displays a zig-zagging pattern between maximum and
+                zero fuel burn. Trial 7 has a more stable second phase where fuel burn gradually increases. When
+                comparing the two types of patterns there was no identifiable trend in which performed better.
+                Lastly, height differs by 0.001438158 units between the highest and lowest heights; that is Trial 3's
+                max height is 11.2038% (to 4dp) less than Trial 12's.
+            </p>
+            <div class="image">
+                <img src="nonlinear-resources/Trial7.jpeg">
+                <p class="graphcap text">Figure 1: Trial 7, Height vs Fuel Flow/Thrust</p>
+            </div>
+            <div class="image underimage">
+                <img src="nonlinear-resources/Trial12.jpeg">
+                <p class="graphcap text">Figure 2: Trial 12, Height vs Fuel Flow/Thrust</p>
+            </div>
+            <p class="text underimage">
+                A total of 43 trials were computed. The results from the top 5 performing (by height) can be seen in
+                Table 1 below, and the results from all in Table A1.
+            </p>
+        </section>
+        <section class="alltrials">
+            <h4>Observation From All Trials</h4>
+            <p class="text">
+                Height does not increase linearly with time, and smaller step sizes \((t_{final}/N)\) generally lead to a better
+                outcome. Since the starting points are important to finding a local maxima, various were tested.
+                Initiating \(\theta\) at \(\theta_{max}\) had the most impact on increasing height, whereas \(t_{final}\) and \(\overline h_k\) did not improve
+                the objective function as much (can be seen in rows 2 to 4 of Table 1). Table 1's results show that
+                the combination of starting points for trial 39 has highest max \(\overline h_k\).
+            </p>
+            <p class="tablecap">Table 1: Results from top 5 outcomes (heights)</p>
+            <table>
+                <tr>
+                    <th scope="col">Trial No.</th>
+                    <th scope="col">Solver</th>
+                    <th scope="col">N</th>
+                    <th scope="col">\(t_{final}\)</th>
+                    <th scope="col">\(\overline h_k\)</th>
+                    <th scope="col">\(\overline \theta_k\)</th>
+                    <th scope="col">max \(\overline h_k\)</th>
+                    <th scope="col">\(k\)</th>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td>SNOPT</td>
+                    <td>400</td>
+                    <td>0.5</td>
+                    <td>0.5</td>
+                    <td>3.5</td>
+                    <td>1.012836497</td>
+                    <td>0,...,N</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>SNOPT</td>
+                    <td>400</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>3.5</td>
+                    <td>1.012836496</td>
+                    <td>1,...,N-1</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>SNOPT</td>
+                    <td>400</td>
+                    <td>0.5</td>
+                    <td>0.5</td>
+                    <td>3.5</td>
+                    <td>1.012836496</td>
+                    <td>1,...,N-1</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td>SNOPT</td>
+                    <td>400</td>
+                    <td>0.25</td>
+                    <td>0.5</td>
+                    <td>3.5</td>
+                    <td>1.012836496</td>
+                    <td>1,...,N-1</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td>KNITRO</td>
+                    <td>400</td>
+                    <td>1</td>
+                    <td>0.5</td>
+                    <td>3.5</td>
+                    <td>1.012836468</td>
+                    <td>1,...,N-1</td>
+                </tr>
+            </table> 
+            <!-- to add table border need to do it in css using the code below
+                table, td {
+                border: 1px solid black;
+                }-->
+        </section>
+        <section class="trial39">
+            <h4>Results from Trial 39</h4>
+            <p class="text">The rate of fuel flow can be observed in 3 main stages:</p>
+            <ol>
+                <li class="text">The rocket takes off a full throttle (max fuel flow) to get off the ground, thrust is constant
+                    and velocity is quickly picking up during this period.</li>
+                <li class="text">The fuel flow is optimised to overcome the increase in drag due to increasing velocity and
+                    height. Fuel flow drops significantly to &asymp;2.1 and gradually increases to 3.1 within 0.5 time
+                    units. Increase in velocity slows down a bit during this initial transition, then ramps up until
+                    the fuel is finished.</li>
+                <li class="text">The rocket continues to rise while decelerating due to drag, which continues for 63.25% of
+                    steps.</li>
+            </ol>
+            <div class="image2">
+                <img src="nonlinear-resources/trial39.png">
+                <p class="graphcap text">Figure 3 (L to R): Height vs Velocity for Trial 39 | Figure 4: Height vs Time for Trial 39 | Figure 5: Height vs
+                    Thrust for Trial 39</p>
+            </div>
+        </section>
+    </section>
+
+    <section class="recommendations">
+        <h3>Actionable Recommendations</h3>
+        <ol>
+            <li class="text">Because the problem is non convex, the solution found is a local maxima and not necessarily a
+                global maximia, research should be done to confirm that it is a viable solution to the problem.</li>
+            <li class="text">Testing a wider range of solvers, and values for parameter N</li>
+            <li class="text">Is max thrust limited by physical infrastructure? The rate of fuel flow, especially within the first
+                phase of take off is important to achieving a maximum heigh, experimentation should be done
+                with a max thrust > 3.5</li>
+            <li class="text">Within this model throttle was able to change infinitely, but real engines do not respond that
+                way. Additional constraints should be added for the max change in throttle between time steps.</li>
+        </ol>
+    </section>
+
+    <section class="suggestions">
+        <h3>Suggestions for Further Investigations</h3>
+        <ol>
+            <li class="text">It was previously mentioned that fuel burn performs linearly to thrust, but engines are more
+                likely to have non-linear relationship between thrust and fuel burn rate. Further test should be
+                carried out to understand how the engine performs then rewrite the formula to more accurately
+                predict how it performs.</li>
+            <li class="text">Though recommended action #2 is testing different values of N, consideration must be taken to
+                ensure that the step length is not too small or too large as they can cause zero values within the
+                finite differences calculations or the estimate of the slope of the tangent may be less accurate.</li>
+            <li class="text">The computational time of this model was rather short, meaning that a more robust model that
+                may need more computational time and power can be used to estimate height</li>
+        </ol>
+    </section>
+
+    <section class="appendix">
+        <h3>Appendix</h3>
+        <p class="caption">Table A1: Trials and their outcomes</p>
+        <table>
+          <thead>
+              <tr>
+                <th scope="col">Trial No.</th>
+                    <th scope="col">Solver</th>
+                    <th scope="col">N</th>
+                    <th scope="col">\(t_{final}\)</th>
+                    <th scope="col">\(\overline h_k\)</th>
+                    <th scope="col">\(\overline \theta_k\)</th>
+                    <th scope="col">max \(\overline h_k\)</th>
+                    <th scope="col">\(k\)</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>1</td>
+                <td>MINOS</td>
+                <td>50</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>MINOS</td>
+                <td>100</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830166</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>MINOS</td>
+                <td>200</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.011398239</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>MINOS</td>
+                <td>400</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.011886695</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>KNITRO</td>
+                <td>50</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809643</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>KNITRO</td>
+                <td>100</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830154</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>KNITRO</td>
+                <td>200</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835201</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>KNITRO</td>
+                <td>400</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012836341</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>SNOPT</td>
+                <td>50</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>SNOPT</td>
+                <td>100</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830162</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>SNOPT</td>
+                <td>200</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012829353</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012836397</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>LOQO</td>
+                <td>50</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>LOQO</td>
+                <td>100</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830161</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>LOQO</td>
+                <td>200</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835188</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>LOQO</td>
+                <td>400</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835551</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>MINOS</td>
+                <td>50</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>MINOS</td>
+                <td>100</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830166</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>MINOS</td>
+                <td>200</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.011398239</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>MINOS</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.011886695</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>KNITRO</td>
+                <td>50</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809623</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>KNITRO</td>
+                <td>100</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830019</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>KNITRO</td>
+                <td>200</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835199</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>KNITRO</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012836405</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>SNOPT</td>
+                <td>50</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>SNOPT</td>
+                <td>100</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830163</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>SNOPT</td>
+                <td>200</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012826693</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012836397</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>LOQO</td>
+                <td>50</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012809645</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>LOQO</td>
+                <td>100</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012830165</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>LOQO</td>
+                <td>200</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835121</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>LOQO</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>1</td>
+                <td>1.75</td>
+                <td>1.012835121</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>KNITRO</td>
+                <td>200</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>1.75</td>
+                <td>1.012835156</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>KNITRO</td>
+                <td>400</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>1.75</td>
+                <td>1.012836265</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>SNOPT</td>
+                <td>200</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>1.75</td>
+                <td>1.012829353</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>36</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>1.75</td>
+                <td>1.012836397</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>37</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836496</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>38</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836496</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>39</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836497</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>MINOS</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.011421983</td>
+                <td>0,...,N</td>
+            </tr>
+            <tr>
+                <td>41</td>
+                <td>KNITRO</td>
+                <td>400</td>
+                <td>1</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836468</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>42</td>
+                <td>KNITRO</td>
+                <td>400</td>
+                <td>0.5</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836381</td>
+                <td>1,...,N-1</td>
+            </tr>
+            <tr>
+                <td>43</td>
+                <td>SNOPT</td>
+                <td>400</td>
+                <td>0.25</td>
+                <td>0.5</td>
+                <td>3.5</td>
+                <td>1.012836496</td>
+                <td>1,...,N-1</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="image">
+            <img src="nonlinear-resources/figureA1.png">
+            <p class="graphcap text">Figure A1: Velocity vs Time for Trial 39</p>
+        </div>
+        <div class="image underimage">
+            <img src="nonlinear-resources/figureA2.png">
+            <p class="graphcap text">Figure A2: Thrust vs Time for Trial 39</p>
+        </div>
+    </section>
+  </main>  
+</body>
+
+</html>

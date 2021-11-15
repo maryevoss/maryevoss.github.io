@@ -1,0 +1,409 @@
+html, body {
+    font-size: 16px;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3C4142;
+}
+
+
+.navbar-fixed-top-black{
+    margin: 0px auto;
+    padding: 0px;
+    display:block;
+    width: 72%;
+    height: 56px;
+    overflow: hidden;
+    justify-content: center; 
+    text-align: center;
+    position: relative;
+    top: 0;
+    font-family: 'Archivo Narrow';
+    border-bottom: 1px solid black;
+}
+
+.navbar-fixed-top-black ul {
+    justify-content: center;    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.navbar-fixed-top-black li{
+    padding: 0px 72px;
+    /* this puts all options in a singular row*/
+    display: inline;
+}
+
+.navbar-fixed-top-black a {
+    color:black;
+    text-decoration: none; 
+}
+
+.navbar-fixed-top-black a:hover {
+    text-decoration: underline;
+}
+
+/* sizing for all content below nav */
+.content{
+    width: 70%;
+    margin: 0px auto;
+}
+
+h1 {
+    margin: auto 0;
+    font-family: 'Bebas Neue';
+    font-size: 3rem;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* about 40px between h1 and h2, not sure why, might need to put them in a sole container */
+h2 {
+    font-family: 'Bebas Neue';
+    font-size: 1.5rem;
+    color: #0B5394;
+   
+}
+
+/*spacing between sections & paragrphs */
+
+#questionone /* first line under title heading */ {
+    padding-top: 0px;
+    font-size: 1.15rem;
+    color: #3d85c6;
+}
+
+.sect /*main section headings 1,2,etc*/ {
+    font-size: 1.15rem;
+    margin-top: 42px;
+    color: #3d85c6;
+}
+
+.sect1 /*section heading directly following main section heading #.x */{
+    font-size: 1.1rem;
+    color: #3d85c6;
+    margin-bottom: -5px;
+}
+
+.sect1b /*section heading directly following main section heading #.x.y */{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-bottom: -5px;  
+    font-weight: 200px;
+   
+}
+
+.sect2{
+    font-size: 1.1rem;
+    color: #3d85c6;
+    margin-top: 36px;
+    margin-bottom: -5px;
+}
+
+.sect2b{
+    font-size: 1rem;
+    color: #3d85c6;
+    margin-top: 36px;
+    margin-bottom: -5px;
+}
+
+
+
+#questionone {
+    padding-top: 0px;
+}
+
+h4 {
+    text-decoration: underline;
+}
+/*  underlining task headers within equations section*/
+.unders {
+    text-decoration: underline;
+}
+
+#probsoltwo{
+    padding-top: 45px;
+}
+
+.code_used {
+    background-color: #e6f3d8;
+    color: green;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+img {
+    width: 100%;
+    margin: auto;
+    display: block;
+    border: 1px solid gray;
+    margin-top: 30px;
+    
+}
+
+/*for equations */
+
+.function {
+    font-weight: bold;
+}
+
+.eq {
+    line-height: 2;
+    text-indent: 100px;
+}
+
+.eq1 {
+    text-indent: 180px;
+}
+
+.eq2 {
+    text-indent: 200px;
+}
+
+#rightside {
+    float: right;
+}
+
+
+/*spacing betweeen graphs, images & text paragraphs*/
+
+
+.underimage {
+    padding-top: 30px;
+}
+
+
+
+/* 'let' variable section- indenting and spacing all equations */
+
+
+
+/* bold and line spacingwithin paragraphs*/
+.bold {
+    font-weight: bold;
+}
+
+.ital {
+    font-style: italic;
+    font-family: "Lora";
+}
+
+.text {
+    line-height: 1.75;
+}
+
+
+
+/* padding at the bottom of the page */
+.appendix {
+    padding-bottom: 80px;
+}
+
+/*design for tables*/
+
+
+/*design for tables*/
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: -10px;
+    margin-bottom: 36px;
+}
+
+td, th{
+    padding: 10px 20px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.tablecap {
+    margin-top: 20px;
+}
+
+@media only screen and (min-width: 1600px) {
+    /* adjusts for larger than a typical laptop screen */
+    .content {
+        width: 60%;
+    }
+}
+
+/* SMALLER */
+
+@media only screen and (min-width: 1232px) and (max-width: 1400px) {
+    .navbar-fixed-top-black{
+        width: 80%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 1097px) and (max-width: 1231px) {
+    .navbar-fixed-top-black{
+        width: 95%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1096px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 72px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    .content{
+        width: 75%;
+    }
+    .eq, .eq1, .eq2, .inline_eq {
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (min-width: 870px) and (max-width: 989px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 60px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2.5rem;
+    }
+    .content{
+        width: 80%;
+    }
+    .eq, .eq1, .eq2, .inline_eq {
+        font-size: .9rem;
+    }
+    .eq1 {
+        text-indent: 50px;
+    }
+    .eq, .eq2 {
+        text-indent: 0px;
+        line-height: 3;
+    } 
+}
+
+@media only screen and (min-width: 660px) and (max-width: 869px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 40px;
+    }
+    a{
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2.25rem;
+    }
+    .content{
+        width: 85%;
+    }
+    .eq, .eq1, .eq2, .inline_eq {
+        font-size: .9rem;
+    }
+    .eq1 {
+        text-indent: 50px;
+    }
+    .eq, .eq2 {
+        text-indent: 0px;
+        line-height: 3;
+    } 
+}
+
+@media only screen and (min-width: 400px) and (max-width: 659px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 10px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.35rem;
+    }
+    h3, .sect /*main section headings 1,2,etc*/ {
+        font-size: 1rem;
+    }
+    .sect1, .sect2 /*section heading directly following main section heading #.x */{
+        font-size: 1rem;
+    }
+    .sect1b, .sect2b /*section heading directly following main section heading #.x.y */{
+        font-size: 1rem;
+    }
+    .graphcap {
+        font-size: .8rem;
+    }
+    .content{
+        width: 90%;
+    }
+    .eq, .eq1, .eq2, .inline_eq {
+        font-size: .9rem;
+    }
+    .eq, .eq1, .eq2 {
+        text-indent: 0px;
+        line-height: 3;
+    }  
+}
+
+@media only screen and (max-width: 399px) {
+    .navbar-fixed-top-black{
+        width: 100%;
+    }
+    .navbar-fixed-top-black li{
+        padding: 0px 5px;
+    }
+    a {
+        font-size: 1rem;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    h3, .sect /*main section headings 1,2,etc*/ {
+        font-size: 1rem;
+    }
+    .sect1, .sect2 /*section heading directly following main section heading #.x */{
+        font-size: 1rem;
+    }
+    .sect1b, .sect2b /*section heading directly following main section heading #.x.y */{
+        font-size: 1rem;
+    }
+    .graphcap {
+        font-size: .8rem;
+    }
+    .content{
+        width: 90%;
+    }
+   .eq, .eq1, .eq2, .inline_eq {
+       font-size: .85rem;
+   }
+    .eq, .eq1, .eq2 {
+        text-indent: 0px;
+        line-height: 3;
+    }       
+}
+

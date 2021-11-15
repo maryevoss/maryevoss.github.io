@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Maximising HIV prevention in 2020 given budget constraints.</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="budget.css" type="text/css" rel="stylesheet">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+    
+
+        <header>
+            <h1>MAXIMISING HIV PREVENTION IN 2020 GIVEN BUDGET CONSTRAINTS</h1>
+        </header>
+
+        <section class="problem">
+            <h2 id="probsol">Problem Brief</h2>
+            <p class="text">Provide suggestions for how resources should be allocated between different HIV prevention strategies: behavioural strategies, 
+                strategies aimed at injecting drug users (IDUs) and strategies aimed at preventing mother-to-child (MTC) transmission in 2020. 
+                The total budget is allocated for HIV treatment and prevention. All persons living with HIV must be treated and only the 
+                remainder of the funding can be used for HIV prevention. This must be allocated appropriately to prevent the maximum number of 
+                HIV cases.</p>
+        </section>
+
+        <section class="soln">
+            <h2 id="probsoltwo">Solution Report</h2>
+            <p class="text"><span class="bold">Goal:</span> Maximise HIV prevention in 2020 given budget constraints by fitting an appropriate statistical or forecasting 
+                model to the following series: number of new HIV infections, number of HIV deaths, number of people seen for HIV care in Excel</p>
+            <p class="code_used">Used Excel's Solver Function to create an HIV prevention strategy.</p>
+        </section>
+
+        <section class="report">
+            <img src="data-analysis-resources/PreventionStrategy.png">
+            <!--
+            <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Data_Analysis/Resources/Screenshot 2021-05-19 at 4.02.59 PM.png">
+            -->
+            <p class="text underimage">It was predicted that in 2020 HIV diagnosis and related deaths would decrease to 2,938 and 118 cases respectively, and 
+                those receiving treatment would increase to 92,245 people. The cost of treating each person is &pound;10,000/year, and treatment must be 
+                provided to every person seeking it. Given a proposed budget of &pound;900M for HIV treatment and prevention, the cost of treatment exceeds 
+                the proposed budget by &pound;22,450,000 - the budget is insufficient. Based on predicted numbers of those seeking treatment and prevention 
+                objectives, the following budget ranges are suggested: </p>
+            <table>
+                <tr>
+                    <th scope="col">Treatment & Prevention Method</th>
+                    <th scope="col">Minimum Cumulative Budget</th>
+                    <th scope="col">Maximum Cumulative Budget</th>
+                </tr>
+                <tr>
+                    <th scope="row">Provide healthcare for all those seeking treatment</th>
+                    <td>&pound;922,450,000</td>
+                    <td>&pound;922,450,000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Injecting Drug Users (IDU)</th>
+                    <td>&pound;922,450,100</td>
+                    <td>&pound;923,850,000</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mother to Child (MTC)</th>
+                    <td>&pound;923,850,500</td>
+                    <td>&pound;924,198,500</td>
+                </tr>
+                <tr>
+                    <th scope="col">Behaviour</th>
+                    <td>&pound;924,199,800</td>
+                    <td>&pound;950,198,500</td>
+                </tr>
+            </table>
+
+            <p class="text">The range between the 'Minimum Cumulative Budget' and 'Maximum Cumulative Budget' is the amount needed to treat 1 case up to all cases for 
+                each Prevention Method (and all Treatment and Prevention Methods listed before it). Considering that the main objective is to maximise 
+                averting new HIV cases, preference was given to prevention methods in the order of Injecting Drug Users, Mother to Child, and lastly 
+                Behaviour Prevention. Maximise averting new HIV cases meant addressing the cheapest prevention method first and then systematically moving 
+                onto the next method in increasing order of cost per prevented case. The cheaper the cost of an individual case, the more cases that can be 
+                averted.</p>
+            <p class="text">Even though Behavioural Prevention has the highest cost per prevention method and prioritizing it seems to deviate from the main objective, 
+                there is a higher success rate of averting those who have been exposed through behaviour. In 2009, 91% of newly diagnosed cases said they 
+                were exposed to HIV through behavioural contact; in 2018, that metric decreased to 78%. In comparison, both MTC and IDU transmission did 
+                not see much distribution change. IDU and MTC transmission target niche subgroups while behavioural addresses a much wider group within 
+                the population. Behavioural Prevention methods can have carried-forward effects - for example if a young female were taught to be safe 
+                while sexually active, she can avoid contraction and the potential to transfer it to her offspring, therefore lowering that budget needed 
+                for MTC Prevention in the future. There is also an opportunity to segment behavioural prevention costs, for example sex education in schools. 
+                Teaching adolescents to be aware and cautious of contracting HIV can potentially be cheaper than educating those who currently are not part 
+                of an education system.</p>
+            <p class="text">Over a 10-year period of 2009 to 2018 HIV diagnosis has decreased by 34.69%, deaths due to HIV have decreased 71.54%, and those living with 
+                HIV who are receiving treatment has increased 45.54%. These changes are a direct result of improved medications and the decrease in stigma 
+                against being HIV positive and prevention strategies.</p>
+            <p class="text">In summary, the minimum budget needed to only treatment those seeking HIV-related healthcare is &pound;922,450,000, and the maximum needed to 
+                potentially prevent all expected new cases of HIV is &pound;950,198,500. When the budget is incrementally increased, to maximise the number of 
+                cases averted the prevention strategies must be addressed in the order IDU, MTC, then Behavioural, addressing all cases within each before 
+                moving onto to the next. Priority should not be given purely based on maximising immediately avertable cases, and weight should be added 
+                to the different prevention methods to add another layer of priority.</p>
+        </section>
+
+        <section class="assumptions">
+            <h3>Assumptions</h3>
+            <section class="a1">
+                <p class="text"><span class="bold">Assumption 1:</span> Probable Exposure: Behavioural would be unaffected if unknown exposure became known, and the 
+                    decrease in HIV as an outcome of Behavioural Exposure is directly related to Prevention Methods focusing on reducing behavioural exposure.</p>
+                    <table border="1">
+                        <tr>
+                            <th scope="col">Probable Exposure</th>
+                            <th scope="col">2009</th>
+                            <th scope="col">2010</th>
+                            <th scope="col">2011</th>
+                            <th scope="col">2012</th>
+                            <th scope="col">2013</th>
+                            <th scope="col">2014</th>
+                            <th scope="col">2015</th>
+                            <th scope="col">2016</th>
+                            <th scope="col">2017</th>
+                            <th scope="col">2018</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Behavioural</th>
+                            <td>91%</td>
+                            <td>91%</td>
+                            <td>92%</td>
+                            <td>91%</td>
+                            <td>88%</td>
+                            <td>88%</td>
+                            <td>83%</td>
+                            <td>83%</td>
+                            <td>80%</td>
+                            <td>78%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">IDU</th>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>3%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">MTC</th>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>2%</td>
+                            <td>1%</td>
+                            <td>2%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Other</th>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>0%</td>
+                            <td>0%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                            <td>1%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Unknown</th>
+                            <td>5%</td>
+                            <td>5%</td>
+                            <td>4%</td>
+                            <td>6%</td>
+                            <td>8%</td>
+                            <td>8%</td>
+                            <td>13%</td>
+                            <td>14%</td>
+                            <td>16%</td>
+                            <td>18%</td>
+                        </tr>
+                    </table>
+                    <p>Table 2: The distribution of probable exposure over the last 10 years</p>
+            </section>
+            <p class="text"><span class="bold">Assumption 2:</span> Using women diagnosed between ages 25-49 for Mother to Child transmission assumes that every woman 
+                within that age range intends to have children, and also excludes women 15-24 who are capable of bearing children.</p>
+            <p class="text"><span class="bold">Assumption 3:</span> Deaths per year is influenced by 1) how many people are currently HIV positive/were previously diagnosed, 
+                2) how many are seen for care, 3) the quality of care, 4) CD4 levels at the time of diagnosis. Strictly using past death rate data does not take 
+                into account any of the other influencing factors that may increase or decrease the death rate.</p>
+            <p class="text"><span class="bold">Assumption 4:</span> Using predictive models that solely use a singular dataset ignores any external factors (such as potential 
+                epidemics and cultural change that can influence future numbers).</p>
+            <p class="text"><span class="bold">Assumption 5:</span> The prevention strategy assumes that everyone within that label will seek out prevention methods and needs 
+                to budgeted for.</p>
+        </section>
+
+        <section class="models">
+            <h3>Predictive Models</h3>
+            <p class="text explanation">Quadratic & Linear models  were used to predict 2019 and 2020 numbers for number of new HIV
+                 Diagnosis, number of Deaths, the number of those seen for care, and women between the ages of 25-49 diagnosed with HIV</p>
+            
+            <h4>Dataset: New Diagnosis</h4>
+            <p class="text">Linear, Quadratic, Polynomials of Order 3 and 4, and Logarithmic models were tested to create the model New Diagnosis. The Linear and Logarithmic 
+                models produced near identical results, while the Quadratic and Polynomial Models produced results non-distinct from one another when review 
+                predictions up to 2020. Due to the similarities creating 2 subsets within the model, the Linear and Quadratic models were further tested by 
+                comparing the sum of squares of the residual values. The Quadratic Model's sum of squares was half that of the Linear model, which led to the 
+                selection of using it to predict years 2019 and 2020. However, this model is invalid for predicting results after year 2020 (as the steep decline 
+                quickly shows negative numbers). Likewise models of higher order exponentially decreased at much faster rates.</p>
+            <img class="predictionmodels" src="data-analysis-resources/Diagnosis.png">
+        
+            <h4 class="underimage">Dataset: Death</h4>
+            <p class="text">Linear and Quadratic models were created and tested to predict future death rates. Even though the Quadratic model's sum of squares produced better 
+                results for predicting the existing years 2009 to 2018, the model predicted negative results for the year 2020 (which would have also been true 
+                for polynomial models of higher order). This leaves the Linear model as the more suitable one for predicting data for years 2019 and 2020.</p>
+            <img class="predictionmodels" src="data-analysis-resources/Deaths.png">
+
+            <h4 class="underimage">Dataset: Treatment & Women Diagnosed between ages 25-49</h4>
+            <p class="text">While modeling Diagnosis it became clear that higher order polynomials produced better predictions for existing years (2009-2018), but generally 
+                performed poorly at predicting future dates. Additionally, graphed data for treatment and women diagnosed exhibited near-linear plots, so an assumption 
+                was made that models of higher polynomials would not produce better predictions for the years 2019 and 2020. Consequently, only Quadratic and Linear 
+                models were used to model datasets for Treatment and Women Diagnosed between ages 25-49. In both cases the Quadratic model produced better results for 
+                the sum of squares. For Treatment Models the sum of squares for the Quadratic model was 22% that of the Linear model, and for Women Diagnosed between 
+                ages 25-49 sum of squares for the quadratic model was half that of the linear model.</p>
+            <img class="predictionmodels" src="data-analysis-resources/WomenandTreatment.png">
+        </section>
+    </section>
+</body>
+
+</html>

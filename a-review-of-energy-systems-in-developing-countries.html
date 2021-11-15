@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A Review of Operational Research in Developing Countries (with a focus on Planning Energy Systems)</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="a-review-of-energy-systems-in-developing-countries.html" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+  
+    <section class="content">
+
+        <h1>A Review of Operational Research in Developing Countries<br>(with a focus on Planning Energy Systems)</h1>
+
+        <section class="abstract">
+            <h3 id="questionone">Abstract</h3>
+            <p class="text">The use of operational research to solve developmental problems in developing countries first began in the 1950s, 
+                but the first official global meeting for this purpose was not held until 1992. Since then the OR community has been making 
+                strides with using operational research to support developing countries. The benefits of operational research have been 
+                experienced across the globe and in diverse applications. One such application is improving energy supply for the ever growing 
+                energy demands in Beijing, China and India. Both studies seek a more evolved understanding of the uncertainties of resource 
+                supply and energy demand so that educated decisions can be made to develop energy systems in their respective countries.</p>
+        </section>
+
+
+
+        <!--INTRODUCTION-->
+
+        <section class="intro">
+            <h3 class="sect">1. Introduction</h3>
+            <p class="text">In the past, the term 'developing country' has been used as a catch all for all those that are not developed or 
+                undeveloped. Countries in this category do not share many qualities, there is no precise characteristic shared amongst them all 
+                (Pritchett, 1997). The World Bank categorises countries into 4 groups based on their Gross National Income, and the 
+                International Monetary Fund has two divisions: Advanced Economies, and Emerging and Developing Economies. It can be surmised 
+                that classifying countries as 'Developed', 'Developing', and 'Under Developed' is antiquated. For the purpose of this review 
+                any country that does not have an advanced economy or high income per capita will be defined as 'developing'.</p>
+
+            <p class="text">The relationship between Operational Research and Developing Countries is thought to have begun at latest in the 
+                late 1950s (Bornstein and Rosenhead, 1990). Over forty years later in December 1992, the first International Conference on OR 
+                for Development took place in Ahmedabad, India. The meeting culminated with the notion to use Operational Research as a tool 
+                to further development and economic advancement in 'developing' countries (Whitea et al., 2011).</p>
+            
+            <p class="text">However, there are several challenges with utilising and implementing operational research techniques in 'developing' 
+                countries. For instance, without human capital, developing countries would not have the local specialist needed to conduct such 
+                research. This lack of resource can be tied to not having the proper education or brain drain of those who do. Wide-spread brain 
+                drain is closely associated with having an adverse impact on economic development (Docquier et al., 2007). Another consideration 
+                is access to big data, the role of which many countries and business leaders are important in propelling development forward 
+                (Long & Brindley, 2013). But poor data infrastructure, and inadequately trained personnel are hurdles that developing countries 
+                must overcome before they can benefit from big data (Luna et al., 2014). Lastly, technological progress is a must-have to join 
+                the ranks of countries with advanced economies (Petralia et al., 2017), without which operational research can only do so much 
+                to support developing countries with industrial development and economic growth.</p>
+
+            <p class="text">In 2015 at a United Nations conference, 195 nations agreed upon 17 sustainability goals that they would like to 
+                achieve by 2030. Some of these goals include climate action, good-health and wellbeing, and sustainable cities and communities. 
+                This paper begins by exploring how operational research techniques have and can be used to help achieve some of these 
+                sustainability goals, while the main literature review will focus on 'Planning Energy Systems in Developing Countries' 
+                (specifically India, and Beijing, China).</p>
+        </section>
+
+
+
+        <!--RESEARCH-->
+
+        <section class="research">
+
+            <h3 class="sect">2. Areas of Research</h3>
+
+
+            <h3 class="sect1 blue ital">2.1 Allocating Healthcare Professionals</h3>
+
+            <p class="text">Regardless of the development status of a country a shortage of healthcare professionals is a universal problem. 
+                In Haryana India there is not only a lack of doctors, but the quantity of doctors allocated to health centres are not 
+                distributed based on the needs of the area, and there is problem with sporadic absenteeism from many doctors. Circumstantially, 
+                it is not easy to numerate the probability of absenteeism. To tackle these issues, a heuristic encompassing linear programming 
+                is constructed to maximise the number of patients attended to by doctors each day (Goyal and Yadav, 1979).</p>
+            
+            <p class="text">Focusing on their emergency department, a government hospital in Kuwait also wants to maximise the number of 
+                patients seen. Ahmed and Alkhamis (2008) go a step further by simulating the process a patient would go through upon 
+                entering the emergency department until their dismissal. Combining the simulation model with a discrete stochastic 
+                optimisation model, Ahmed and Alkhamis (2008) optimise the quantity of nurses, doctors and lab technicians needed in the 
+                emergency department.</p>
+            
+            <p class="text">In poverty-stricken Haiti, mortality rates are high and communities rely on healthcare workers (not doctors). 
+                Parker et al. (1988) aim to maximise "health "benefit" to a regional population"; benefits are specified as decreased mortality 
+                rates and optimised time spent treating various health issues. The limitations on healthcare workers, finances and other 
+                resources lead Parker et al. (1988) to handle this as a resource allocation problem.</p>
+
+
+            <h3 class="sect2 blue ital">2.2 Balancing Nutrients in Local Diets</h3>
+
+            <p class="text">Children in many developing countries suffer from malnutrition. To achieve the World Health Organisations 
+                recommendations of improved feeding practices. Ferguson et al. (2006) used goal programming to optimise diets based on local 
+                ingredients and cuisine that meet the numerous nutritional needs of children. The technique of goal programming is quite 
+                fitting for addressing this problem; as Romero (1991, pg ix) describes, "Goal Programming attempts to combine the logic of 
+                optimisation in mathematical programming with the decision makers' desire to satisfy several goals."</p>
+            
+            <p class="text">Over the years Mathematical Programming has become a common technique for solving diet problems, whether they be 
+                malnourished children, feeding soliders in war or educating adults on having a balanced diet (van Dooren, 2018). With the 
+                intention of education mothers of infants in West Lombok, Indonesia about feeding their children key nutrients (zinc, calcium, 
+                niacin and iron); Fahmida et al. (2015) developed a linear programming model to create complimentary feeding recommendations 
+                (CFRs) to supplement the missing nutrients.</p>
+
+            
+            <h3 class="sect2 blue ital">2.3 Transportation Pollution</h3>
+
+            <p class="text">Growing populations in dense urban cities intensify the fight for space. Businesses such as manufacturers and 
+                warehouser that need a lot of it are all now located outside of cities. To get their goods in, freight trains (and other modes 
+                of transport) are used. Freight trains discharge copious amounts of noise pollution, air pollution, and greenhouse gases that 
+                are unsustainable and harmful to both people and the environment. In the past, the optimisation of freight train schedules and 
+                networks did not include consideration for pollution and sustainability. Bandeira et al. (2018) proposed using a fuzzy 
+                multi-criteria decision making approach to confront these issues of pollution and sustainability and to suggest a less harmful 
+                approach to distribution chains and urban deliveries. In Tehran, the scope is broadened a little to include the transportation 
+                of passengers on a railway. The fuel consumption of both these trains have unsustainable amounts of carbon emission. Using a 
+                mixed integer nonlinear model, Miandoab et al. (2019) suggest carbon emissions can be decreased by optimising the schedule 
+                taking into consideration the carbon emission factor related to weight and prioritisation of trains.</p>
+
+
+            <h3 class="sect2 blue ital">2.4 Disaster Relief</h3>
+
+            <p class="text">Natural disasters spawn damage and uncertainty. When they strike, residents of communities and even countries may 
+                be displaced from their homes. Turkey is one such country that is susceptible to natural disasters that cause its citizens to 
+                become homeless overnight. To aid in these catastrophes governments need to have procedures in place to quickly assemble 
+                temporary shelters to house citizens. Using mixed integer linear programming, Kilci et al. (2014) were able to select ideal 
+                locations for temporary shelters. </p>
+
+            <p class="text">Basic goods such as food and clothing also suddenly become inaccessible. It is difficult, to be fully prepared for a 
+                disaster, but preparatory measures to the fullest extent must be put in place to ensure these resources are available. Khayal et 
+                al. (2015, p.22) propose using "a network flow model for dynamic selection temporary distribution facilities and allocation of 
+                resources for emergency response planning", in which excess resources are transferred between facilities in response to disasters.</p>
+            
+        </section>
+
+
+
+         <!--PLANNING-->
+
+        <section class="planning">
+            <h3 class="sect">3. Planning Energy Systems</h3>
+
+
+            <h3 class="sect1 blue ital">3.1 Defining The Problem</h3>
+
+            <p class="text">Modern day society has become dependent on electricity, so much so that at this rate supply cannot meet demand. 
+                Population sizes are continuously increasing, thereby requiring higher quantities of supplied energy and more planning for 
+                the provision of energy sources in the present and future. As societies all around the globe continue to grow technologically 
+                and in population size, reliance on products that need to be fuelled by energy is exponentially increasing- from lighting 
+                homes at night to powering manufacturing facilities.</p>
+
+            <p class="text">How two different societies have chosen to approach this supply shortage will be reviewed and compared within this 
+                report. They are described in'Production and maintenance planning for electricity generators: modelling and application to 
+                Indian power systems,' by Chattopadhyay (2001), and 'An interval full-infinite mixed-integer programming method for planning 
+                municipal energy systems- A case study of Beijing' by Zhu et al. (2011). </p>
+
+            <p class="text">In both instances the overarching goal is to improve planning and production of energy supplies, but on a granular 
+                level they differ from one another. Chattopadhyay (2001) focuses on optimising currently available resources for no more than a 
+                year into the future. The commissioners of the research also stated that it is of utmost importance to maintain the existing 
+                distribution of planned outages while minimising cost is secondary. Conversely, Zhu et al. (2011) have been permitted much more 
+                flexibility- if additional resources are needed they will be allocated. Additionally, the objective function is defined by 
+                minimising costs  while taking into consideration limits on pollution, machinery depreciation, supply costs, selling prices, 
+                capacity expansion, etc.</p>
+
+            <p class="text">Though this review focuses on cases in India and Beijing it is a common global issue. Both of the reviewed 
+                approaches use a form of linear programming to solve their version of planning energy systems. The studies were conducted over a 
+                decade apart and in different parts of the world, but their main objectives still remain the same- how to supply energy when 
+                demand is both uncertain and increasing, and natural resources are finite.</p>
+
+
+            <h3 class="sect2 blue ital">3.2 Power Systems in India</h3>
+
+            <h3 class="sect1b italthin">3.2.1 Introduction to Full Problem</h3>
+
+            <p class="text">Year over year, demand for energy has increased by over 10% in India. Annual seasonal patterns can be found within 
+                the data, and throughout each individual day there is a wide range in difference between peak and low energy usage. During daily 
+                peaks, approximately 20% of those who need energy go without, because current supply cannot meet such a high demand. Other times 
+                when citizens are without electricity it is because there is a power outage. The Northern Regional Electricity Board (NREB) 
+                groups these outages into two categories: planned and unplanned. Planned outages occur when transmission networks are shut off 
+                for maintenance, and unplanned (also called forced) outages can happen for various reasons such as a faulty wire. </p>
+                
+            <p class="text">Within a 36-year period, India's energy production capacity has increased by 44.44x since 1961. If increase was 
+                steady from year to year, each year's capacity grew by 11.12%. To create energy, India depends on coal (62%) and hydropower 
+                (28%) as fuel supplies. The Norther Regional Electricity Board supplies electricity to seven states; their transmission network 
+                consists of 238 interconnected generating units. </p>
+
+            <p class="text"></p>
+
+            <p class="text">The NREB performs annual research to plan ahead for the coming year. There are three outcomes they are most 
+                interested in: a) a review of the current energy process, b) a proposal for potential improvements, c) a demonstration of the 
+                effectiveness of b. Though their main purpose is not to focus on specifically addressing the energy supply shortage, it is 
+                modelled this way.</p>
+
+            <div class="image">
+                <img src="energy-diagram.png">
+                <p class="graphcap">Figure 1. Diagram of Energy Creation Process and the sub-problems associated with each area.</p>
+            </div>
+            <p class="text">To produce the outcomes outlined, Chattopadhyay (2001) analyses the entire energy production process and outlines 
+                the subproblems. The diagram below displays the system's process and which subproblems are associated with which subsystems.</p>
+
+            <h3 class="sect2b blue italthin">3.2.2 Model Summary</h3>
+            <p class="text">A six-step method was developed by Chattopadhyay (2001) to optimise the maintenance schedule and minimise costs. 
+                It is as follows:</p>
+            <ol class="outer">
+                <li class="text">Generators are to an extent randomly sampled, in a manner that will create a maintenance plan that can handle a large number 
+                    generators that frequently lose power. The current maintenance schedule is considered when pooling which generators should 
+                    be sampled first, and generators that experience forced (unplanned) power outages most frequently are sample first.</li>
+                <li class="text">Each sample set is used as input into the multi-objective relaxed LP one at a time. The LP   has two objective functions: 
+                    i) minimise total cost of system denoted by 'COST' and ii) minimise the variance of expected energy shortage denoted by 
+                    'VAR'. COST is not of too much importantance to the NREB unless there is a significant decrease. The second objective 
+                    function VAR is of utmost importance as the NREB would like to continue uniformly distributing planned outages in the manner 
+                    deemed most fair. Chattopadhyay then combines the two objective functions (COST/VAR) using Compromise Programming which was 
+                    proposed by Zeleny (1982). The output of the relaxed LP is an approximated maintenance plan for those generators within the 
+                    random sample along with recommended fuel supply, generation and transmission flow variables for each generator. 
+                    Unfortunately this maintenance plan is not ideal because it does not ensure:</li>
+                    <ol class="inner">
+                        <li class="text">That too many generators within one plant are being scheduled for maintenance simultaneously (this should be 
+                            avoided)</li>
+                        <li class="text">Maintenance won't be scheduled during peak demand </li>
+                    </ol>
+                <li class="text">To adjust for the faults of the LP model, a heuristic is used. The heuristic utilises all the outputs from the LP model 
+                    to create a viable order for the maintenance plan.</li>
+                <li class="text">Now that the maintenance plan has been established it becomes a fixed variable, and the three other outputs (fuel supply, 
+                    quantity generated and transmission flow) from the initial LP can be optimised based on the maintenance plan. The original 
+                    LP is updated by removing the maintenance constraints as they're now obsolete. A new constraint and its associated 
+                    variables PEAK, EUP and UFIC are added for monthly peak demand. The constraint "implicitly assumes a unit to be 
+                    unavailable during the occurrence of the peak-load condition even if it is on maintenance for a small fraction of time" 
+                    (Chattopadhyay, 2001, p.482).</li>
+                <li class="text">Steps 1 to 4 are repeated until all generators have been selected</li>
+                <li class="text">The expected outcome is computed by combining all sample sets</li>
+            </ol>
+            <p class="text">To recap, the first is a relaxed linear programming model to create an initial maintenance schedule. That initial 
+                maintenance schedule is not considered ideal based on the criteria that every region must experience maintenance power outages 
+                equally, so the schedule is further developed using a heuristic. Once the maintenance plan is established it is used in the 
+                second LP, which optimises for overall cost and 'variance of expected energy shortage over the 12 months' (Chattopadhyay, 2001).</p>
+            
+                <!--EQUATION EXPLANATIONS-->
+            <h4>Step 2: Linear Programming Equations</h4>
+            <p class="function text">Objective Function 1:</p>
+            <p class="eq">\( COST =
+                \sum_{ncg,m}
+                (GEN)_{ncg,m} . SCOST_{ncg}\)
+                \(+
+                \sum_{cg,m}
+                (GEN)_{cg,m} . NFC_{cg}\)</p>
+
+            <p class="eq1">\( 
+                +
+                \sum_{s,q,c,k,r}
+                (COAL)_{s,c,q,k,r} . \)
+                \([TRCOST_r . DIST_{s,c,r}]\)</p>
+            
+            <p class="eq1">\( 
+                +
+                \sum_{s,c,q,k,r}
+                (COAL)_{s,c,q,k,r} . (MCOST)_{c,k}\)</p>
+
+            <p class="eq1">\( 
+                +
+                \sum_{i,m}
+                (EUE)_{i,m} . (UECOST)_{i,m}\)</p>
+            
+            <p class="text">Cost is representative of the the entire process in the Figure 1 diagram for the upcoming year. It includes the 
+                costs to generate each MWh of energy from oil and gas, and coal, the cost of purchasing and transporting varying grades of coal 
+                from mines to mine-mouths and power stations, and the cost of energy shortages per area.</p>
+
+            <p class="function text">Objective Function 2:</p>
+            
+            <p class="eq">\(VAR = w_1 \sum[EUE_{i,m} - EUE_i^*]^2 \)
+                \(+ w_2\sum(EUE_i^*)^2\)</p>
+            
+            <p class="text">VAR represents minimising the variance of expected energy shortage (Chattopadhyay, 2001); 
+                <span class="ital">'i'</span> specifies the area, <span class="ital">'m'</span> the month, and 
+                <span class="ital">'w1'</span> and <span class="ital">'w2'</span> are weights. The minimum value VAR can hold is the 
+                average expected energy shortage within an area. It is squared to be of equal scale as the first half of the function. The 
+                weights can be used to experiment with the value of importance of each part of the equation. The VAR equation provides feedback 
+                on if the maintenance plan is good.</p>
+            
+            <p class="function text">Compromising Function:</p>
+            <p class="eq"> \(DISTANCE = W_{COST}. COST/Min COST \)
+                \(+ W_{VAR}. VAR/Min VAR - CONSTANT\)</p>
+            <p class="text">As mentioned before, Chattopadhyay (2001) uses Compromise Programming to merge the two objective functions. This 
+                establishes a relationship between the two individual objective functions. The objective is the minimise the distance between 
+                COST and VAR. Distance is 'the trade-off among the objectives, and also, whether there are good compromise solutions that may 
+                help NREB achieve reasonably uniform distribution of energy shortage at a modest increase in cost,' Chattopahyay (2001).</p>
+            
+            <p class="text">The objective functions are constrained by ten equations:</p>
+            <ol class="outer">
+                <li class="text"># of MWh generated by each generator \(\leq\) availability of the generator less planned and unplanned outages</li>
+                <li class="text">generator capacity per hour times min hours \(\leq\) # of MWh generated by each coal-based generator (thermal power plant) 
+                    \(\leq\) generator capacity per hour <span class="ital">times</span> max hours</li>
+                <li class="text">MWh generated from hydropower \(\leq\) max capacity of hydropower</li>
+                <li class="text">Unit availability \(\leq\)Length of time each generator has before it must receive maintenance (otherwise can result in 
+                    damage)</li>
+                <li class="text">Unit availability \(\leq\) # of units in a station - 1 (ensures all units in one station are not scheduled at the same 
+                    time)</li>
+                <li class="text">MWh generated from coal-based units = "efficiency of the power plant, caloric content of the fuel, and the quality of coal 
+                    that it receives"</li>
+                <li class="text">Coal supplied \(\leq\) coal available from mines</li>
+                <li class="text">Coal supplied \(\leq\) quantity of coal that can be physically transported</li>
+                <li class="text">Energy demand (per state per month) + energy shortage = energy generated and energy transferred less losses</li>
+                <li class="text">Energy transferred from one state to the other \(\leq\) the physical capacity of the transmission lines</li>
+            </ol>
+
+            <h4>Step 3: Heuristic</h4>
+            <p class="text">Within the sample set, each generating unit has an associated vector containing its maintenance schedule that was 
+                recommended in step 2. An example vector is [0.2, 0.3, 0, 0.5] which indicates maintenance work for this specific generator will 
+                be completed in four months with the first 20% of maintenance completed in month one. The maintenance schedule is reviewed and 
+                based on a detailed set of criteria is decided whether to be kept or if it should be replanned so that the overall sample set's 
+                schedule can be better optimised (Chattopahyay, 2001). The heuristic is not expected to produce the most optimum results, but 
+                is used because it better addresses the NREB's focus on uniformly distributing planned (maintenance) power outages. The outcome 
+                of the heuristic is a fixed maintenance schedule within the sample set.</p>
+            
+            <h4>Step 4: The Updated Linear Programming Model</h4>
+            <p class="text">The initial LP is updated by replacing the maintenance variable <span class="ital">'U'</span> with the fixed maintenance 
+                schedules <span class="ital">'U*'</span>. To accommodate the change, other updates are made to the LP:</p>
+            <ol class="outer">
+                <li class="text">Constraint #4, which specifies how long a generator can perform for before needing maintenance, and constraint #5, which 
+                    ensures the maintenance of generators within the same plant are not scheduled simultaneously, are both removed.</li>
+                <li class="text">A new constraint is added: <span class="inline_eq">\((PEAK)_{i,m} + EUP_{i,m} =\)
+                    \( \sum DCAP_g.UFIX_{g,m} \)
+                    \(+ \sum T_{i,j,m}(1-LOSS_{i,j})\)</span>, which is 
+                    used to better understand production capacity especially during peak demand by assuming a unit is entirely unavailable if 
+                    there is any period of maintenance during peak-load time. Chattopadhyay (2001) is aware that this constraint may shrink 
+                    power availability within the model, and so it is adjustable.</li>
+            </ol>
+
+            <h3 class="sect2b blue italthin">3.2.3 Outcomes and Suggestions</h3>
+            <p class="text">Compared to the previous approach of modelling the NREB's energy system Chattopadhyay's (2001) approach was more 
+                interconnected in terms of optimising for all the decision variables. System costs were lowered by redistributing which coal
+                mines will be fuel supplies for power plants and by generating more energy in power plants where cost/MWh 
+                was lower and then transferring the energy to other areas. Overall it was estimated to decrease total cost by approximately 
+                10% - approximately Rs 4.470 million and all four sub problems previously outlined have been addressed.</p>
+            <p class="text">The cost objective function does not include costs for machinery depreciation or maintenance which decreases the 
+                accuracy of the model because it is unlikely the NREB will actually save that much money. Loss of load is mentioned in the 
+                monthly energy demand constraint, but it should be used better. Loss of load can be used as a measure of reliability (Kaldellis, 
+                2010); decreasing shortages to increase reliability of the system should an objective of the NREB, not just maintaining the 
+                current distribution. Though cost is a great way to enumerate improvements, reliability would have been better so that less 
+                people can go without energy shortages. Volkanovski et al. (2008) minimised the loss of load probability in "Genetic algorithm 
+                optimisation of the maintenance scheduling of generating units in a power system". This can be used in a goal programming 
+                method so that the focus is on meeting a minimum improvement level.</p>
+            <p class="text">The outcomes of Chattopadhyay's (2001) model prove that it is more efficient to increase production at some power 
+                plants and transfer the energy to demand nodes in other areas. Transmission capacity is a constraint caused by the physical 
+                power lines. It may be worth while to improve these. </p>
+            
+            <h3 class="sect2 ital">3.3 Planning Municipal Energy Systems in Beijing</h3>
+            <h3 class="sect1b italthin">3.3.1 Introduction to Full Problem</h3>
+            <p class="text">In Beijing, research is focused on the long term planning of their energy systems. At the highest level their 
+                problem focuses on three main aspects: growing demand, scarce resources and environmental damage (both the present and future). 
+                The fast growth of demand is demonstrated by the rate of change in energy consumption: it measured 63.4 million tonnes of coal 
+                in 2008, 1.5 times higher than in 2001. Beijing itself does not have the fuel supply resources it needs to generate energy 
+                supply. These resource limitations and additional infrastructural limitations have forced Beijing to import a portion of their 
+                energy supply from nearby provinces at higher costs, and subject to conditions such as availability of excess supply and 
+                'cost-barrier of transmission infrastructure' (Zhu et al., 2011).</p>
+            <p class="text">Importance is placed on meeting demand, whether it is by increasing capacity or by importing higher-cost energy. 
+                The latter is more of a temporary solution, as Beijing plans to expand capacity and decrease air pollutants by installing 
+                clean-coal-fired, natural-gas-fired, landfill-gas-fired, and wind-power generation facilities. They would undoubtedly prefer 
+                to shift more of their energy supply to renewable resources to be more environmentally friendly, but the needed technologies 
+                and capacities are not yet available (Zhu et al., 2011).</p>
+            <p class="text">This research concentrates on understanding and updating energy demand and supply usage patterns, which will support 
+                planning and expansion projects while managing economic cost versus environmental friendliness. Or, in Zhu et al.'s (2011) words, 
+                'how to effectively alloc-ate energy and decide how to expand to minimise the net system cost'. The subproblems are as follows:</p>
+            <ol class="outer letters">
+                <li class="text">Build an energy model based on methods mentioned in the next section</li>
+                <li class="text">Create a method that can include capacity expansion schemes inclusive of uncertainties</li>
+                <li class="text">Utilise outcome to inform Beijing on energy system planning and environmental management</li>
+            </ol>
+
+            <h3 class="sect2b italthin">3.3.2 Model Summary</h3>
+            <p class="text">Facility capacity, production efficiency, resource availability and allocation are all uncertainties that play 
+                significant roles within the model. Zhu et al. (2011) explore various methods of addressing the unpredictability of these 
+                uncertainties. They first examine Interval-Parameter Programming (IPP), which uses crisp intervals (a,b), but it does not 
+                provide the flexibility needed of the constraints to cope with uncertainties. IPP is regularly used in cases of uncertainty 
+                in the provision of utilities; a successful case of this was by Zarghami et al. (2015) to solve for the uncertainties 
+                involved with allocating water.</p>
+            <p class="text">In the end, Zhu et al. (2011) selected an interval full-finite mixed-integer programming method to deal with the 
+                complex uncertainties and intricacies of expanding capacity. Its upper and lower bounds are defined by functional intervals, 
+                thereby making the model solvable because they are sensitive enough to the uncertainty of the inputs (Zhu et al., 2011). 
+                The final model is considered an 'Interval Full-Infinite Mixed-Integer Municipal-Scale Energy Model' (IFMI-MEM), and it 
+                contains both crisp and functional intervals. </p>
+            <p class="text">The objective function's (Figure 2) complicated structure is a result of there being 18 different conversion 
+                technologies (methods) for generating electricity and heat. Within the function, revenue from selling electricity to other 
+                provinces and financial subsidies for pollution emissions are the only two sources of income. The function begins with the 
+                cost to purchase resources that will be converted into electricity and heat supply. Additionally, there are operational 
+                costs inclusive of machinery depreciation which is relative to specific time periods, conversion technologies and quantities 
+                of heat and electricity generated. For each conversion technology and energy type generated, there is a binary capacity 
+                expansion option  that allows supply to meet the increased energy demand, giving Beijing the option of optimising the model 
+                with or without the expansion. Other expenses include transmission costs of electricity and pollution emission penalty costs. </p>
+            <p class="text">The 18 conversion technologies are represented within the function as <span class="ital">n</span> = 1,...,18. 
+                <span class="ital">n</span> =1,...,9 are within electric power plants, <span class="ital">n</span> =10,11,12 in thermal power 
+                plants, and <span class="ital">n</span> =13,...,18 in heat plants, <span class="ital">L</span> = 5 years. Though the system 
+                is representative of costs over the next 15 years it can be easily adjusted for any number of years (if criteria remains the same).</p>
+
+            <!--OBJECTIVE FUNCTION LATEX-->
+            <p class="eq underimage">Minimise \(
+                f^\pm = \sum_{i=1}^{13}\sum_{k=1}^{13}CN_{ik}^\pm(\alpha_k^\pm) \)
+                \(\times XN_{ik}^\pm \)
+                \(- \sum_{j=1}^{6}\sum_{k=1}^{3}CO_{jk}^\pm(\alpha_k^\pm)\)
+            
+            <p class="eq2"> \(\times XO_{jk}^\pm \)
+                \(+\sum_{m=1}^{2}\sum_{k=1}^{3}[PR_{mk}^\pm \)
+                \(\times PC_{mk}^\pm (\eta_{mk}) + \sum_{q=1}^n YM_{qmk}^\pm 
+                \) </p>
+
+            <p class="eq2">\(
+                \times PA_{qmk} \times PI_{mk}^\pm(\theta)_{mk}] \)
+                \(\times L + \sum_{n=1}^9\sum_{k=1}^3[PDR_{nk}^\pm \)
+                \(\times PDC_{nk}^\pm(\beta_{nk})
+                \) </p>
+
+            <p class="eq2">\(
+                + \sum_{q=1}^nYP_{qnk}^\pm \times PDA_{qnk} \)
+                \(\times PDI_{nk}^\pm (\gamma_{nk})] \)
+                \(\times L
+                \) </p>
+                
+                <p class="eq2">\(
+                + \sum_{n=10}^{12}\sum_{k=1}^3 [PRR_{nk}^\pm \)
+                \(\times PRC_{nk}^\pm(\delta_{nk}) \)
+                \(+ HRR_{nk}^\pm \)
+                \(\times HRC_{nk}^\pm(\epsilon_{nk})
+                \) </p>
+
+                <p class="eq2">\(
+                + \sum_{q=1}^3 YH_{qnk}^\pm \)
+                \(\times PRA_{qnk} \)
+                \(\times PRI_{qnk}^\pm(\zeta_{nk})] \)
+                \(\times L
+                \) </p>
+
+                <p class="eq2"> \(
+                + \sum_{n=13}^{18}\sum_{k=1}^3 [PGR_{nk}^\pm \)
+                \(\times PGC_{nk}^\pm(\mu_{nk}) + HGR_{nk}^\pm \)
+                \(\times HGC_{nk}^\pm(\pi_{nk})]
+                \) </p>
+
+                <p class="eq2">\(
+                \times L \)
+                \(+ \sum_{n=1}^9\sum_{k=1}^3 (PDR_{nk}^\pm \)
+                \(+ \sum_{q=1}^3 YP_{qnk}^\pm \times PDA_{qnk} \)
+                \(\times h_k) \)
+                \(\times (1-SL_k)
+                \) </p>
+
+                <p class="eq2">\(
+                \times CU_k \)
+                \(\times L \)
+                \(+ \sum_{n=10}^{12}\sum_{k=1}^3 [PRR_{nk}^\pm \)
+                \(+ \sum_{q=1}^3 YH_{qnk}^\pm \)
+                \(\times PRA_{qnk}
+                \) </p>
+                
+                <p class="eq2">\(
+                \times (1-PRB_k) \)
+                \(\times h_k] \)
+                \(\times (1-SL_k) \)
+                \(\times CU_k \times L
+                \) </p>
+
+                <p class="eq2">\(
+                + \sum_{n=13}^{18}\sum_{k=1}^3 [PGR_{nk}^\pm \)
+                \(\times (1-SL_k) \)
+                \(\times CU_k \times L
+                \) </p>
+
+                <p class="eq2">\(
+                + \sum_{n=1}^{9}\sum_{k=1}^3 (PDR_{nk}^\pm \)
+                \(+ \sum_{q=1}^3 YP_{qnk}^\pm \)
+                \(\times PDA_{qnk} \times h_k)
+                \times (CP_{pk}^\pm
+                \) </p>
+
+                <p class="eq2"> \(
+                + CE_{pk}^\pm/h_k-SU_k) \)
+                \(\times L + \)
+                \(\sum_{n=10}^{12}\sum_{k=1}^3[PRR_{nk}^\pm \)
+                \(+ HRR_{nk}^\pm 
+                \) </p>
+
+                <p class="eq2">\(
+                + \sum_{q=1}^3YH_{qnk}^\pm \times PRA_{qnk}^\pm \)
+                \(\times (1-PRB_k) \times h_k] \)
+                \(\times (CP_{pk}^\pm 
+                \) </p>
+
+                <p class="eq2">\(
+                + CE_{pk}^\pm/h_k - SU_k) \)
+                \(\times L \)
+                \(+ \sum_{n=13}^{18}\sum_{k=1}^3 (PGR_{nk}^\pm \)
+                \(+HGR_{nk}^\pm)
+                \) </p>
+
+                <p class="eq2">\(
+                \times (CP_{pk}^\pm \)
+                \(+ CE_{pk}^\pm/h_k-SU_k) \times L
+                \)</p>
+
+            <p class="text underimage">The objective function above is constrained by: 1) supply and demand, 2) a capacity limit on pollution emissions, 3) 
+                funding for expansion, and 4) non-negativity for decision variables.  Decision makers have the ability to easily modify 
+                constraints as needed. They are as follows:</p>
+            <p class="text">I. Supply:</p>
+                <ol class="inner">
+                    <li class="text">Supply of fuel resources \(\leq\) resources available</li>
+                </ol>
+            <p class="text">II. Mass of Balance:</p>
+                <ol class="inner">
+                    <li class="text">Amount of heat generated from n in period <span class="ital">k</span> (from both existing technological capacity and from capacity expansion) 
+                        \(\geq\) (1 + heat loss) <span class="ital">times</span> total heat demand</li>
+                    <li class="text">Amount of electricity generated from <span class="ital">n</span> in period <span class="ital">k</span> (from both 
+                        existing technological capacity and from capacity expansion) \(\geq\) (1 + transmission loss) <span class="ital">n</span> total 
+                        electricity demand</li>
+                    <li class="text">Total electricity generated \(\geq\) 0 (non-negativity constraint)</li>
+                </ol>
+            <p class="text">III. Demand:</p>
+                <ol class="inner">
+                    <li class="text">Total energy generated - energy sold (to other regions) > demand</li>
+                    <li class="text">Energy generated by each processing technology type in period <span class="ital">k</span> \(\geq\) demand of Energy 
+                        from each processing technology type in period</li>
+                    <li class="text">Electricity generated in electric power plant for each energy type \(\geq\) Electric demand</li>
+                    <li class="text">Heat generated from coal, oil and gas in thermal power plant \(\geq\) Heat demand</li>
+                </ol>
+            <p class="text">IV. Environmental</p>
+                <ol class="inner">
+                    <li class="text">There is an upper bound limit on each type of pollution</li>
+                </ol>
+            <p class="text">V. Expansion Costs (Funding Limits for):</p>
+                <ol class="inner">
+                    <li class="text">Electric power plant expansion for each type of power processing technology (coking or oil refining) in period 
+                        <span class="ital">k</span></li>
+                    <li class="text">Electric power plant expansion for each type of power conversion technology (eg. wind, oil-generated, etc) in period 
+                        <span class="ital">k</span></li>
+                    <li class="text">Thermal power plant expansion conversion technology in period <span class="ital">k</span> for each type of resource 
+                        that can be converted into heat</li>
+            </ol>
+            <p class="text">VI. Non-Negativity, for the following decision variables:</p>
+                <ol class="inner">
+                    <li class="text">Quantity of local energy supplied for each energy type <span class="ital">i</span> in period 
+                        <span class="ital">k</span></li>
+                    <li class="text">Quantity of local energy supplied for each energy type <span class="ital">i</span> in period 
+                        <span class="ital">k</span> to be transfer to another province</li>
+                    <li class="text">Quantity of energy generated by processing technology <span class="ital">m</span> (coking or oil-refining) in period 
+                        <span class="ital">k</span></li>
+                    <li class="text">Quantity of electricity generated by conversion technology <span class="ital">n</span> in electric power plants in 
+                        period <span class="ital">k</span></li>
+                    <li class="text">Quantity of electricity generated by conversion technology <span class="ital">n</span> in thermal power plants in 
+                        period <span class="ital">k</span></li>
+                    <li class="text">Quantity of heat generated by conversion technology <span class="ital">n</span> in thermal power plants in period 
+                        <span class="ital">k</span></li>
+                </ol>
+
+            <h3 class="sect2b italthin">3.3.3 Outcome and Suggestions</h3>
+            <p class="text">The objective function's outcome is total cost of the system over 15 years \(f_{opt}^\pm\)= RMB&yen;[709.14, 3208.25] x 
+                1012. The range of the results is attributed to the range of the interval inputs; the lower and upper bounds of the outcome are 
+                the product of parameters either all at the lower bound or all at the upper bound. Zhu et al (2011) describes the spectrum of 
+                cost to be the "tradeoffs between system costs and reliability." As is expected, there is a positive relationship between system 
+                costs and reliability. Furthermore, "the model can be used for examining the relations between system cost and resource 
+                availability." Ultimately, the lower bound represents the lowest cost the system may have to still produce sufficient results, 
+                but to gain more reliability costs will increase.</p>
+            <p class="text">Interval results in period <span class="ital">k</span> = 1,2,3 are for the following variables:</p>
+                <ol class="outer">
+                    <li class="text">Local energy supply for <span class="ital">i</span> = 1,..., 13 where <span class="ital">i</span> is energy/resource purchased</li>
+                    <li class="text">Energy supply for transfer for <span class="ital">i</span> = 1,...,13</li>
+                    <li class="text">Amount of energy generated by process technology <span class="ital">m</span> where 
+                        <span class="ital">m</span> = coking or oil refining</li>
+                    <li class="text">Amount of electricity generated by conversion technology <span class="ital">n</span> =1,...,9 in electric power plant</li>
+                    <li class="text">Amount of electricity generated by conversion technology <span class="ital">n</span> =10,11,12 in thermal power plant</li>
+                    <li class="text">Amount of heat generated by conversion technology <span class="ital">n</span> =13,...,18 in thermal power plant</li>
+                    <li class="text">Binary capacity expansion option for conversion technology <span class="ital">n</span> =1,...,9 in electric power plant</li>
+                    <li class="text">Binary capacity expansion option for energy processing technology <span class="ital">m</span> in thermal power plant</li>
+                    <li class="text">Binary capacity expansion option for conversion technology <span class="ital">n</span> =10,11,12 in thermal power 
+                        plant</li>
+                </ol>
+            <p class="text">The only financial constraint was on capacity expansion. This resulted in there being an approximately 2.5 
+                quadrillion renminbi difference between the lower and upper bounds of the objective output. With such a variation it seems as 
+                though it would make decision-making difficult. To further decision-making it would be beneficial to extend this project to use 
+                multi-criteria decision making to finalise which is the best course of action. In Algeria, Haddad et al. (2017) used this 
+                approach to decide which concept would be best for transforming their energy system from exclusively relying on fossil fuels to 
+                also including non-renewable energies.</p>
+            <p class="text">As China's energy demands continue to grow so do air pollutants - SO<sub>2</sub>, NO<sub>x</sub> and PM<sub>10</sub>. 
+                In China, 90% of SO<sub>2</sub> and 67% NO<sub>x</sub> emissions are caused by coal (Chen & Xu, 2010).If the same types of 
+                resources and conversion methods continue to be used as demand grows air pollution will inevitably worsen. Zhu et al. (2011) 
+                mentioned that the 'environmental protection goal' will force the reduction of coal-fired and gas-fired energy production, 
+                and the government has shown interest in expanding their use of natural gas which has lower pollution emissions. Alternatively, 
+                mixtures of coal and biomass have been shown to reduce pollutants SO<sub>2</sub> by up to 7-12% and NO<sub>x</sub> by 45% 
+                (Narayanan & Natarjan, 2006). </p>
+            <p class="text">China makes a lot of effort to invest in clean-coal and renewable resources research. This model only uses 
+                traditional forms of energy conversion (Zhu et al., 2011). In a way, this makes the model outdated. If the model is to plan for 
+                the coming 15 years, it should include non-traditional sources of energy as an option like it does with the binary capacity 
+                expansion. Clean energy is currently more expensive than non-renewable energies, and so it may be useful to analyse how much 
+                more expensive clean energy is per MWh. </p>
+            <p class="text">Lastly, a major flaw in this model is that it does not include peak energy demand or peak energy supply. If the model 
+                cannot realistically plan for when the energy system is most strained, it is unlikely to meet the needs of energy demand and 
+                contribute enough to solving the energy crisis in Beijing.</p>
+            <p class="text"></p>
+        </section>
+
+        <section class="comparison">
+            <h3 class="sect2 ital">3.4 Comparison of Methods</h3>
+            <p class="text">To recap, the two models aim to close the gap on energy demand shortages through planning, but proceed to do so very 
+                differently. For the NREB in India, the distribution of planned shortages must be allocated fairly, and their outlook is only up 
+                to the coming year. In Beijing, the model encompasses the next 15 years; it includes opportunities for expanding energy supply 
+                capacity, and places emphasis on reducing air pollution.</p>
+            <p class="text">Both models are based on linear programming techniques. Uncertainty is a shared common theme that has been dealt with 
+                very differently. Chattopadhyay (2001) uses Monte Carlo simulation to model the random power outages that are of probabilistic 
+                nature, while Zhu et al. (2011) use functional intervals to capture the range of uncertainty expected in resource supply, future 
+                demand, etc. Furthermore, their constraints reflect their similarities and differences. They each host equations for energy 
+                supply, resources supply, transmission, energy demand and mass balance constraints, but maintenance, environmental impact, and 
+                funding constraints are not shared by the two.</p>
+            <p class="text">Neither model seems to be holistically complete. As mentioned before, Chattopadhyay (2001) does not include all 
+                costs within the cost objective function, and Zhu et al. (2011) do not consider peak demand or supply. So, albeit useful these 
+                models probably should not be given full trust.</p>
+        </section>
+
+        <section class="conclusion">
+            <h3 class="sect2 ital">3.5  Conclusion</h3>
+            <p class="text">Energy supply is an ongoing problem many countries face. Cheaper sources of energy production come at the cost of 
+                the environment and citizens' health. Though research is being done to convert to less harmful energy supply, one of the 
+                adversities to transitioning is increased cost and who will be responsible for bearing it. </p>
+            <p class="text">It is likely that energy supply will remain an ongoing issue for many countries. It is not an easy task to predict 
+                the uncertainties of future demand or be able to prepare for it. Within the energy system there are many subsystems which pose 
+                as risks to meeting demand such as resource availability, technology and capacity. </p>
+            <p class="text">Linear Programming has proven to be a versatile modelling method that can be manipulated to address a variety of 
+                problems.</p>
+        </section>
+
+        <section class="overall">
+            <h3 class="sect">4. Overall Conclusion</h3>
+            <p class="text">Developing Countries can benefit from methods of operational research. In the past mathematicians have used 
+                operational research to assist with alleviating child malnutrition, allocating health professionals, easing pollution from 
+                transportation, and many other problems. Unfortunately, past successes are not enough to always motivate using operational 
+                research in developing countries. Other than a lack of financial resources there are several challenges obstructing developing 
+                countries from moving towards using operational research. They may not have the skilled human capital to model the research 
+                or build the infrastructure needed to host necessary data. It is also an unfortunate fact that corruption is prevalent in many 
+                developing countries, and optimising processes may not be to the benefit of those involved. If developing countries are to 
+                advance governments of these countries must shoulder the responsibility of being the driving force of the imperative cultural 
+                changes.</p>
+        </section>
+
+        <section class="references">
+            <h3 class="sect">REFERENCES</h3>
+            <ol>
+                <li class="text">Ahmed, M.A. and Alkhamis, T.M. (2008) Simulation optimization for an emergency department healthcare unit in Kuwait. 
+                    <span class="italics">European Journal of Operational Research,</span> 198, 936-942</li>
+                <li class="text">Bandeira, R., D'Agosto, M., Ribeiro, S., Bandeira, A. And Goes G. (2018) A fuzzy multi-criteria model for evaluating 
+                    sustainable urban freight transportation operations. <span class="italics">Journal of Cleaner Production</span>, 184, 727-739</li>
+                <li class="text">Bornstein, C.T. and Rosenhead, J. (1990) The role of Operational Research in less developed countries: A critical approach. 
+                    <span class="italics"></span>European Journal of Operational Research, 49, 156-178</li>
+                <li class="text">Chattopadhyay, D. (2001) Production and maintenance planning for electricity generators: modeling and application to Indian 
+                    power systems. <span class="italics">International Transactions in Operational Research</span>, 8, 465-490</li>
+                <li class="text">Chen, W. and Xu, R. (2010) Clean coal technology development in China. Energy Policy, 38 (5), 2123-2130</li>
+                <li class="text">Docquier, F., Lohest, O. And Marfouk, A., (2007) Brain Drain in Developing Countries. <span class="italics">The World Bank 
+                    Economic Review</span>, 21 (2), 2007, 193-218.</li>
+                <li class="text">Fahmida, U., Kolopaking, R., Santika, O., Sriani, S., Umar, J., Htet, M.K and Ferguson, E. (2015) Effectiveness in 
+                    improving knowledge, practices, and intakes of "key problem nutrients" of a complementary feeding intervention developed by 
+                    using linear programming: experience in Lombok, Indonesia. <span class="italics">American Society for Nutrition</span>, 
+                    101, 455-461</li>
+                <li class="text">Ferguson, E., Darmon, N., Fahmida, U., Fitriyanti, S., Harper, T. and Premachandra, I. (2006) Design of Optimal Food-Based 
+                    Complementary Feeding Recommendations and Identification of Key "Problem Nutrients" Using Goal Programming. 
+                    <span class="italics">he Journal of Nutrition</span>T, 136, 2399-2404</li>
+                <li class="text">Goyal, S.K. and Yadav, J.P. (1979)  Allocation of Doctors to Health Centres in Haryana State of India A Case Study. 
+                    <span class="italics">The Journal of the Operational Research Society</span>, 30 (5), 427-431</li>
+                <li class="text">Haddad, B., Liazid, A. and Ferreira, P. (2017) A multi-criteria approach to rank renewables for the Algerian electricity 
+                    system. <span class="italics">Renewable Energy</span>, 107, 462-472</li>
+                <li class="text">Kaldellis, J.K. (2010) Stand-Alone and Hybrid Wind Energy Systems. United Kingdom: Woodhead Publish Limited. Available from: 
+                    <a href="https://www.sciencedirect.com/book/9781845695279/stand-alone-and-hybrid-wind-energy-systems" target="blank">URL Link</a> 
+                    [Accessed 28 April 2020]</li>
+                <li class="text">Khayal, D., Pradhananga, R., Pokharel, S. And Mutlu, F. (2015) A model for planning locations of temporary distribution facilities for emergency response. Socio-Economic Planning Sciences, 52, 22-30</li>
+                <li class="text">Kilci, F., Kara, B.Y. and Bozkaya, B. (2014) Locating temporary shelter areas after an earthquake: A case for Turkey. 
+                    <span class="italics">European Journal of Operational Research</span>, 243, 323-332</li>
+                <li class="text">Long, J. and Brindley, W. (2013) The role of big data and analytics in the developing world. Accenture. Available 
+                    from: <a href="https://www.accenture.com/us-en/~/media/accenture/conversion-assets/dotcom/documents/global/pdf/strategy_5/accenture-adp-role-big-data-and-analytics-developing-world.pdf" target="blank">URL Link</a>
+                    [Accessed 24 April,2020]</li>
+                <li class="text">Luna, D., Mayan, J.C., García, M.J., Almerares, A.A. and Mowafa, H., et al. (2014) Challenges and potential solutions for big data 
+                    implementations in developing countries. <span class="italics">Yearb Med Inf.</span> 9, 36-41</li>
+                <li class="text">Miandoab, M.H., Ghezavati, V. and Mohammaditabar, D. (2019) Developing a simultaneous scheduling of passenger and freight 
+                    trains for an inter-city railway considering optimization of carbon emissions and waiting times. <span class="italics">
+                    Journal of Cleaner Production</span>, 248, 119303</li>
+                <li class="text">Narayanan, K.V. and Natarajan, E. (2006) Experimental studies on cofiring of coal and biomassblends in India.  
+                    <span class="italics">Renewable Energy</span>, 32, 2548-2558</li>
+                <li class="text">Parker, B., Stansfield, S., Boulos, R., Augustin, A. and Newman J. (1988) OPTIMIZATION OF TASK ALLOCATION FOR COMMUNITY 
+                    HEALTH WORKERS IN HAITI. <span class="italics">Socio-Economic Planning Sciences</span>, 22 (1), 3-14</li>
+                <li class="text">Petralia, S., Balland, P.A. and Morrison, A. (2017) Climbing the ladder of technological development. 
+                    <span class="italics">Research Policy</span>, 46 (5), 956-969</li>
+                <li class="text">Pritchett, L. (1997) Divergence, Big Time. <span class="italics">The Journal of Economic Perspectives</span>, 11 (3), 3-17</li>
+                <li class="text">Romero, C. (1991) Handbook of Critical Issues in Goal Programming. Great Britain: BPCC Wheatons Ltd. Exeter. Available 
+                    from: <a href="https://books.google.com/books?id=ITyjBQAAQBAJ&lpg=PP1&dq=goal%20programming&lr&pg=PP1#v=onepage&q&f=false" target="blank">URL Link</a> [Accessed 24 April 2020].</li>
+                <li class="text">van Dooren, C. (2018) A Review of the Use of Linear Programming to Optimize Diets, Nutritiously, Economically and 
+                    Environmentally. <span class="italics">Frontiers in Nutrition</span>, 5 (48)</li>
+                <li class="text">Volkanovski, A., Mavko, B., Bosevski, T., Causevski, A. and Cepin, M. (2008) Genetic algorithm optimisation of the 
+                    maintenance scheduling of generating units in a power system. <span class="italics">Reliability Engineering & System 
+                        Safety</span>, 93 (6), 779-789 </li>
+                <li class="text">Whitea, L., Smith, H. And Currie C. (2011) OR in developing countries: A review. European Journal of Operational Research, 
+                    208 (1), 1-11</li>
+                <li class="text">Zarghami, M., Safari, N., Szidarovsky, F. and Islam, S. (2015) Nonlinear Interval Parameter Programming Combined with 
+                    Cooperative Games: a Tool for Addressing Uncertainty in Water Allocation Using Water Diplomacy Framework.
+                    <span class="italics">Water Resoures Management</span>, 29, 4285-4303</li>
+                <li class="text">Zhu, Y., Huang, G.H., Li, Y.P., He, L. and Zhang, X.X. (2011) An interval full-infinite mixed-integer programming method 
+                    for planning municipal energy systems - A case study of Beijing. <span class="italics">Applied Energy</span>, 88, 2846-2862</li>
+                
+            </ol>
+        </section>
+
+            <h3 class="blue ital"></h3>
+            <p class="text"></p>
+            <p class="text"></p>
+            <p class="text"></p>
+            <h3 class="blue ital"></h3>
+            <h3 class="blue italthin"></h3>
+
+    </section>        
+
+    
+</body>
+
+</html>

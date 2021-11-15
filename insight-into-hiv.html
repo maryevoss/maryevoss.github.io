@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Insight into HIV within the UK between 2009 and 2018</title>
+    <!--API to use latex eqs-->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="insights-into-hiv.css" type="text/css" rel="stylesheet">
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Bebas+Neue&family=Kalam:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar-fixed-top-black">
+        <ul style="list-style-type:none;">
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="courseworkhome.html">projects</a></li>
+            <li><a href="resume.html">resume</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="content">
+
+        <header>
+            <h1>INSIGHT INTO HIV WITHIN THE UK BETWEEN 2009 AND 2018</h1>
+        </header>
+
+        <section class="problem">
+            <h2 id="probsol">Problem Brief</h2>
+            <p class="text">Given HIV data answer the following questions by provide an informative and insightful description of HIV within 
+                the UK using a variety of charts and analysis techniques. <span class="bold">(1)</span> How has the distribution of new HIV 
+                cases changed between 2009 and 2018? <span class="bold">(2)</span> Is the national trend in the three key HIV indicators 
+                (new HIV cases, HIV deaths and number of people on treatment) the same for men and women? <span class="bold">(3)</span> Are 
+                there any obvious differences in behaviour between the different UK regions?</p>
+        
+        </section>
+
+        <section class="soln">
+            <h2 id="probsoltwo">Solution Report</h2>
+            <p class="code_used">   All graphs and analysis completed in R.</p>
+        </section>
+
+        <!--
+        <section class="changes">
+            <h3 class="question">How has the distribution of new HIV cases changed between 2009 and 2018?</h3>
+            <section class="gender">
+                <h3>Gender Distribution</h3>
+                <p class="text">The following graphs consider the distribution change of men and women within the four nation states of Great 
+                    Britain diagnosed with HIV annually. Typically, the ratio of men to women hovers around 3:1. Excluding England, there was 
+                    a drop in 2014, indicating there was a greater percentile increase of females diagnosed over the prior year. Comparing the 
+                    gender distribution of 2009 to 2018:</p>
+                <section class="split">
+                    <section class="left">
+                        <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Data_Analysis/Resources/Rplot02.jpeg">
+                    </section>
+                    <section class="right">
+                        <p class="text"><span class="bold">England:</span> There is a slight but steady decrease in women diagnosed, indicating 
+                            that both genders are decreasing at similar rates.</p>
+                        <p class="text"><span class="bold">Northern Ireland:</span> Females' share of the distribution has grown compared to the 
+                            early years, suggesting that male rates are decreasing faster.</p>
+                        <p class="text"><span class="bold">Scotland:</span> Males' share experienced an increased in 2012, and continues to decrease 
+                            at slower rates than women (with the exception of 2014)</p>
+                        <p class="text"><span class="bold">Wales:</span> The female proportion of the distribution has almost halved in 2018 when 
+                            compared to 2009.</p>
+                    </section>
+                </section>
+            </section>
+            <section class="age">
+                <h3>Using Age Groups to Compare New Cases in Different Regions</h3>
+                <section class="split">
+                    <section class="left">
+                        <p class="text">The distribution of new cases amongst the different age groups have each had moderate changes over the course 
+                            of 10 years. Unlike most other age groups, those in age groups 50-64 and 65 and over increased in number of cases of HIV 
+                            over the years, thereby increasing their distribution within all new diagnosis.</p>
+                        <p class="text">In contrast, new HIV cases in age groups <15 and 35 to 49 are decreasing at faster rates and therefore shrinking 
+                            in distribution. Despite the changes, the age groups which outweighed others in 2009 still do in 2018 ( as expected since 
+                            these are the ages people are more sexually active).</p>
+                    </section>
+                    <section class="right">
+                        <img src="/Users/me.voss/Documents/Portfolio_Website/Coursework/Data_Analysis/Resources/Rplot03.jpeg">
+                    </section>
+                </section>
+            </section>
+        </section>
+        -->
+
+        <section class="changes">
+            <h3 id="questionone">How has the distribution of new HIV cases changed between 2009 and 2018?</h3>
+            <section class="gender">
+                <h4>Gender Distribution</h4>
+
+                <p class="text">The following graphs consider the distribution change of men and women within the four nation states of Great 
+                    Britain diagnosed with HIV annually. Typically, the ratio of men to women hovers around 3:1. Excluding England, there was 
+                    a drop in 2014, indicating there was a greater percentile increase of females diagnosed over the prior year. Comparing the 
+                    gender distribution of 2009 to 2018:</p>
+                
+                <p class="text"><span class="bold">England:</span> There is a slight but steady decrease in women diagnosed, indicating 
+                    that both genders are decreasing at similar rates.</p>
+                <p class="text"><span class="bold">Northern Ireland:</span> Females' share of the distribution has grown compared to the 
+                    early years, suggesting that male rates are decreasing faster.</p>
+                <p class="text"><span class="bold">Scotland:</span> Males' share experienced an increased in 2012, and continues to decrease 
+                    at slower rates than women (with the exception of 2014)</p>
+                <p class="text"><span class="bold">Wales:</span> The female proportion of the distribution has almost halved in 2018 when 
+                    compared to 2009.</p>
+
+                <div class="image">
+                    <img src="data-analysis-resources/Rplot02.jpeg">
+                </div>
+            </section>
+
+            <section class="age">
+                <h4 class="aftergraph">Using Age Groups to Compare New Cases in Different Regions</h4>
+
+                <p class="text">The distribution of new cases amongst the different age groups have each had moderate changes over the course 
+                    of 10 years. Unlike most other age groups, those in age groups 50-64 and 65 and over increased in number of cases of HIV 
+                    over the years, thereby increasing their distribution within all new diagnosis.</p>
+                <p class="text">In contrast, new HIV cases in age groups <15 and 35 to 49 are decreasing at faster rates and therefore shrinking 
+                    in distribution. Despite the changes, the age groups which outweighed others in 2009 still do in 2018 ( as expected since 
+                    these are the ages people are more sexually active).</p>
+
+                <div class="image">
+                    <img src="data-analysis-resources/Rplot03.jpeg">
+                </div>
+            </section>
+        </section>
+
+
+
+
+        <section class="trends">
+            <h3 class="question">Is the national trend in the three key HIV indicators (new HIV cases, HIV deaths and number of people on treatment) the same for men 
+                and women?</h3>
+            <section class="each graph">
+                <h4>New HIV Cases</h4>
+                <p class="text">During the last 10 years (2009 to 2018) there has been a 32.4% decline in the number of diagnosed HIV cases throughout the UK. In 2015 
+                there was a particularly sharp drop in cases for both genders. While both genders saw a shift towards lower annual diagnoses, numbers 
+                for women decreased by 46% while those for men decreased by 26%.</p>
+            </section>
+            <section class="each graph">
+                <h4>Deaths</h4>
+                <p class="text">The number of deaths due to HIV fluctuated between 2009 to 2015. Deaths of men and women follow a parallel pattern, albeit at a much 
+                    different scale. Within 2 years (2014 to 2016) the number of deaths per annum due to HIV fell by over 50% for both genders. It is 
+                    important to note that death is impacted by factors such as past diagnoses, CD4 levels at diagnosis, and quality of treatment</p>
+            </section>
+            <section class="each graph">
+                <h4>Treatment</h4>
+                <p class="text">The national trend for number of people receiving treatment is increasing for both men and women at uniform rates with numbers 
+                    corresponding to the number of people diagnosed within each respective gender.</p>
+            </section>
+
+            <div class="image">
+                <img src="data-analysis-resources/Rplot04.jpeg">
+            </div>
+        </section>
+
+
+        <section class="differences">
+            <h3 class="question">Are there any obvious differences in behaviour between the different UK regions?</h3>
+            <section class="cd4">
+                <h4>CD4 Levels at Diagnosis</h4>
+                <p class="text">Approximately 47% of HIV cases are diagnosed when CD4 levels are dangerously low (below 350). The worst case occurred in Wales in 
+                    2011, when 59% of HIV diagnoses had CD4 levels below 350, and in the best circumstances in Northern Ireland in 2015 when 27% of 
+                    HIV diagnoses had CD4 levels below 350. The varying lengths of the interquartile ranges for the different regions demonstrate how 
+                    inconsistent regions are at identifying HIV. Generally, London has diagnosed HIV positive persons when their CD4 levels are higher 
+                    than 350, which gives them a better survival rate. Conversely, Wales is almost always worse than average, but did improve in 2014 
+                    by spotting 60% of new cases before CD4 levels dipped below 350.</p>
+                <div class="image">
+                    <img src="data-analysis-resources/Rplot06.jpeg">
+                </div>
+            </section>
+            <section class="mtc">
+                <h4 class="aftergraph">The Relationship Between Mother to Child (MTC) Transmission and Diagnosis Under Age 15</h4>
+                <p class="text">The relationship between MTC transmission and diagnosis under age 15 shows us how many children living with HIV are unaware of their 
+                    condition, as they have either not yet been diagnosed or were diagnosed at a much later age even though they contracted HIV pre/post 
+                    birth. In cities where there are fewer cases of HIV, medical doctors have been better at catching HIV early; in contrast, larger 
+                    cities such as London were more likely to leave cases undiagnosed. This could be because the doctors were unaware of the mother's 
+                    HIV status.</p>
+                <div class="image2">
+                    <img src="data-analysis-resources/Rplot07.jpeg">
+                </div>
+            </section>
+            <section class="exposure">
+                <h4 class="aftergraph">Probable Exposure at Diagnosis: Sex Between Men vs Heterosexual Contact</h4>
+                <p class="text">86.5% of cases during 2009 to 2018 HIV was contracted through behavioural exposure (either from sex between men or heterosexual contact). 
+                    The graphs below show how these two subcategories of exposure compared to one another for new HIV cases over the years. In many regions 
+                    sex between men and heterosexual contact are equally responsible for spreading HIV, although over time the portion due to sex between 
+                    men grows (and in most regions outweighs heterosexual contact). Unlike the majority of the UK, heterosexual contact is the main cause 
+                    of spreading HIV within the Midlands and East of England. This growing concentration of HIV contact from sex between men correlates to 
+                    why new cases of HIV are continuously more likely to be from men than women.</p>
+                <div class="image">
+                    <img src="data-analysis-resources/Rplot05.jpeg">
+                </div>
+            </section>
+        </section>
+
+        <section class="summary">
+            <h3>Summary</h3>
+            <p class="text">The overall HIV climate has shown significant improvement over the last 10 years. Deaths due to HIV and new diagnoses per annum have notably 
+                decreased, whilst an upsurge transpired in those receiving the needed healthcare. The year-over-year gains of treatment numbers can be 
+                attributed to advancements in medication, which in conjunction with the dwindling number of new cases also directly relates to shrinking 
+                death rates. If the number of new cases continues to decrease we can expect to see treatment numbers wane in the future. Even though HIV is 
+                generally declining, the Gender Distribution graphs reveal that it is not doing so equally between men and women. The shifts towards a 
+                greater percentage of cases coming from men can be attributed to the rising percentage of HIV exposure through sex between men. Like gender, 
+                the distribution amongst age groups is disproportionate - the three youngest age group account for lesser cases, while also shrinking over 
+                time. One speculation is that these age groups are continuously becoming more aware and educated about HIV. Unfortunately, 47% of the time 
+                HIV goes unnoticed until CD4 levels are already below 350. It is difficult to specify a reason as to why people are diagnosed so late, as 
+                there are many potential factors. For example, in the case of Mother To Child transmission, mothers of children who aren't diagnosed until 
+                later on in life may not have been aware that they were carrying HIV while pregnant. Overall, people with HIV need to be accurately diagnosed 
+                sooner, as this will not only improve the individual's chance of survival, but also increase awareness and potentially prevent further spread 
+                of HIV.</p>
+        </section>
+    </section>
+
+    
+</body>
+
+</html>
