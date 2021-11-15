@@ -64,10 +64,11 @@ h1 {
 
 
 .about {
-    margin: 0px auto;
+    margin: 0 auto;
     justify-content: center;
     width: 80%;
     border-style: 1px double black;   
+    padding-bottom: 80px;
     
 }
 
@@ -96,7 +97,7 @@ h1 {
     color: #CA6641;
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1540px) {
     /* adjusts for larger than a typical laptop screen */
     .about {
         margin-top: 120px;
