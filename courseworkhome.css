@@ -305,7 +305,8 @@ a:hover {
     .outer-outer {
         display: flex;
         width: 100%;
-        justify-content: space-around;   
+        justify-content: space-around;
+        flex-direction: column;
     }
     .outer-box{
         width: 45%;
